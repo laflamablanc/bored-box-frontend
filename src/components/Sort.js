@@ -8,7 +8,7 @@ class Sort extends Component {
 
   render() {
     return (
-      <nav>
+      <div>
         <h2>Sort By:</h2>
         <select onChange={this.changeHandler}>
           <option value="Popularity">Popularity</option>
@@ -17,7 +17,7 @@ class Sort extends Component {
           <option value="Rating">Rating</option>
           <option value="Max-Players">Max Players</option>
         </select>
-      </nav>
+      </div>
     );
   }
 

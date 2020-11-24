@@ -59,6 +59,20 @@ export function createUser(newUser){
   }
 }
 
+export function getUser(){
+  return function(dispatch){
+    fetch("http://localhost:4000/users/1")
+    .then(r=>r.json())
+    .then(user => {
+      dispatch({
+        type: "GET_USER",
+        payload: user
+      })
+    })
+    .catch(console.log)
+  }
+}
+
 export function createBox(user){
   return function(dispatch){
     fetch("http://localhost:4000/boxes", {

@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {createUser, createBox} from '../redux/actions'
+import {getUser, createBox} from '../redux/actions'
 import {Link} from 'react-router-dom'
 
-class Signup extends React.Component {
+class Login extends React.Component {
 
   state = {
     username: "",
@@ -12,7 +12,7 @@ class Signup extends React.Component {
 
   localSubmitHandler = (e) => {
     e.preventDefault()
-    this.props.createUser(this.state)
+    this.props.getUser()
     this.setState({username: "", password: ""})
   }
 
@@ -26,19 +26,16 @@ class Signup extends React.Component {
     return(
       <div className="login-page">
         <h2 className="login-page-header-text login-page-header-text-lg"> Welcome to Fridg'n Hungry! </h2>
-        <h5 className="login-page-header-text login-page-header-text-sm"> Please Signup to Continue </h5>
+        <h5 className="login-page-header-text login-page-header-text-sm"> Please Login to Continue </h5>
         <form className="login-page-form" onSubmit = {this.localSubmitHandler}>
-          <label className="login-page-header-text" for="name">Full Name:</label><br/>
-          <input type="text" id="name" name="name" onChange = {this.handleChange} value={this.state.username}/><br/>
             <label className="login-page-header-text" for="username">Username:</label><br/>
             <input type="text" id="username" name="username" onChange = {this.handleChange} value={this.state.username}/><br/>
             <label className="login-page-header-text" for="password">Password:</label><br/>
             <input type="password" id="password" name="password" onChange = {this.handleChange} value = {this.state.password}/><br/>
             <input className="login-page-submit" type="submit" id="submit" name="submit"/>
         </form>
-      <br/>
-        <Link to="/login"> Already have an account? </Link>
-
+        <br/>
+          <Link to="/signup"> Create Account Here </Link>
       </div>
     )
   }
@@ -46,10 +43,10 @@ class Signup extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createUser: (newUser)=> dispatch(createUser(newUser)),
+    getUser: (newUser)=> dispatch(getUser(newUser)),
     createBox: (newUser)=> dispatch(createBox(newUser))
   }
 }
 
 
-export default connect(null, mapDispatchToProps)(Signup)
+export default connect(null, mapDispatchToProps)(Login)

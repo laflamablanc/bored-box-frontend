@@ -6,6 +6,7 @@ const defaultState = {
   user: [],
   boxes: [],
   currentBox: [],
+  boxgames: [],
   loggedin: false
 }
 
@@ -23,6 +24,8 @@ function boxesReducer(state = defaultState.boxes, action){
 
     case "FETCH_BOXES":
       return action.payload
+    case "GET_USER":
+      return action.payload.boxes
     default:
       return state
   }
@@ -42,7 +45,7 @@ function boxesReducer(state = defaultState.boxes, action){
     switch (action.type){
       case "ADD_USER":
         return action.payload
-      case "FETCH_USERS":
+      case "GET_USER":
         return action.payload
       default:
         return state
@@ -52,6 +55,8 @@ function boxesReducer(state = defaultState.boxes, action){
   function loginReducer(state = defaultState.loggedin, action){
     switch (action.type){
       case "ADD_USER":
+        return true
+      case 'GET_USER':
         return true
       default:
         return state
@@ -68,6 +73,20 @@ function boxesReducer(state = defaultState.boxes, action){
           ...state,
           games: [...state.games, action.payload]
         }
+      case "GET_USER":
+        return {
+          ...action.payload.boxes.slice(-1),
+          games: action.payload.boxgames
+        }
+      default:
+        return state
+    }
+  }
+
+  function boxGameReducer(state = defaultState.boxgames, action){
+    switch(action.type){
+      case "GET_USER":
+        return action.payload.boxgames
       default:
         return state
     }
@@ -79,7 +98,8 @@ const rootReducer = combineReducers({
   user: usersReducer,
   boxes: boxesReducer,
   currentBox: currentBoxReducer,
-  loggedin: loginReducer
+  loggedin: loginReducer,
+  boxgames: boxGameReducer
 })
 
 

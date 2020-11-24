@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {createBox} from '../../redux/actions.js'
 import {fetchBoxes} from '../../redux/actions.js'
+import BoxGameCard from '../../components/BoxGameCard'
 
 class BoxesContainer extends React.Component {
 
@@ -9,9 +10,16 @@ class BoxesContainer extends React.Component {
     this.props.createBox(this.props.user)
   }
 
+  totalCost = (array) => {
+    let total = 0
+    array.forEach(game => total += game.price)
+    return total
+  }
+
   render(){
-    console.log(this.props.currentBox.games)
-    if (this.props.currentBox.games) {
+    let gamesArray = this.props.currentBox.games
+    console.log(gamesArray)
+    if (gamesArray) {
       return(<div>
         <h2>My Boxes:</h2>
         <h3> {this.props.currentBox.length === 0 ? "No Boxes Found" : "" } </h3>
@@ -19,9 +27,10 @@ class BoxesContainer extends React.Component {
         Create New Box
         </button>
         <ul>
-        {this.props.currentBox.games.map(game=> <li>{game.name} - $ {game.price}</li>)}
+          {gamesArray.map(game=> <BoxGameCard game={game}/>)}
         </ul>
         <button> Checkout </button>
+        <h2> Total: ${this.totalCost(gamesArray)}</h2>
         </div>)
     } else {
       return (

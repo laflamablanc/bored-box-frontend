@@ -56,7 +56,7 @@ class GamesContainer extends React.Component {
     return(
       <div>
         <Sort sortGames = {this.sortGames}/>
-        {gamesArray.map(game=> <GameCard game={game}/>)}
+        {gamesArray.map(game=> <GameCard key = {game.id} game={game}/>)}
       </div>)
   }
 }

@@ -10,6 +10,7 @@ import Quiz from './containers/Quiz'
 import GamesContainer from './containers/GamesContainer'
 import NavBar from './components/NavBar'
 import Signup from './components/Signup'
+import Login from './components/Login'
 
 class App extends React.Component {
 
@@ -20,12 +21,13 @@ class App extends React.Component {
       <Router>
         <div>
           <NavBar/>
-          <Route exact path= "/" render ={() => { return loggedIn? <Home/> : <Signup/>}}/>
-          <Route exact path= "/quiz" render ={() => { return loggedIn? <Quiz/> : <Signup/>}}/>
-          <Route exact path= "/account" render ={() => { return loggedIn? <AccountInfo/> : <Signup/>}}/>
+          <Route exact path= "/" render ={() => { return loggedIn? <Home/> : <Login/>}}/>
+          <Route exact path= "/quiz" render ={() => { return loggedIn? <Quiz/> : <Login/>}}/>
+          <Route exact path= "/account" render ={() => { return loggedIn? <AccountInfo/> : <Login/>}}/>
           <Route exact path= "/signup" component ={Signup}/>
-          <Route exact path= "/boxes" render ={() => { return loggedIn? <BoxesContainer/> : <Signup/>}}/>
-          <Route exact path= "/games" render ={() => { return loggedIn? <GamesContainer/> : <Signup/>}}/>
+          <Route exact path= "/login" component ={Login}/>
+          <Route exact path= "/boxes" render ={() => { return loggedIn? <BoxesContainer/> : <Login/>}}/>
+          <Route exact path= "/games" render ={() => { return loggedIn? <GamesContainer/> : <Login/>}}/>
         </div>
       </Router>
 
