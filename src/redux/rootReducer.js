@@ -3,8 +3,10 @@ import { combineReducers } from 'redux'
 const defaultState = {
   api: [],
   games: [],
-  users: [],
-  box: []
+  user: [],
+  boxes: [],
+  currentBox: [],
+  loggedin: false
 }
 
 function apiReducer(state = defaultState.api, action){
@@ -16,10 +18,11 @@ function apiReducer(state = defaultState.api, action){
   }
 }
 
-function boxReducer(state = defaultState.box, action){
+function boxesReducer(state = defaultState.boxes, action){
   switch (action.type){
-    case "ADD_GAME_TO_BOX":
-      return [...this.state.box, action.payload]
+
+    case "FETCH_BOXES":
+      return action.payload
     default:
       return state
   }
@@ -35,14 +38,36 @@ function boxReducer(state = defaultState.box, action){
   //   }
   // }
   //
-  function usersReducer(state = defaultState.users, action){
+  function usersReducer(state = defaultState.user, action){
     switch (action.type){
       case "ADD_USER":
-        console.log("adding user")
-        return [...state, action.payload]
-      case "FETCH_USERS":
-        console.log("fetching users")
         return action.payload
+      case "FETCH_USERS":
+        return action.payload
+      default:
+        return state
+    }
+  }
+
+  function loginReducer(state = defaultState.loggedin, action){
+    switch (action.type){
+      case "ADD_USER":
+        return true
+      default:
+        return state
+    }
+  }
+
+  function currentBoxReducer(state = defaultState.currentBox, action){
+    switch (action.type){
+      case "CREATE_BOX":
+        return action.payload
+      case "ADD_GAME_TO_BOX":
+        console.log(state)
+        return {
+          ...state,
+          games: [...state.games, action.payload]
+        }
       default:
         return state
     }
@@ -51,7 +76,10 @@ function boxReducer(state = defaultState.box, action){
 const rootReducer = combineReducers({
   api: apiReducer,
   // games: gamesReducer,
-  users: usersReducer
+  user: usersReducer,
+  boxes: boxesReducer,
+  currentBox: currentBoxReducer,
+  loggedin: loginReducer
 })
 
 

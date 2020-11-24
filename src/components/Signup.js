@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {createUser} from '../redux/actions'
+import {createUser, createBox} from '../redux/actions'
 
 class Signup extends React.Component {
 
@@ -10,9 +10,8 @@ class Signup extends React.Component {
   }
 
   localSubmitHandler = (e) => {
-    console.log("State", this.state)
     e.preventDefault()
-    this.props.submitHandler(this.state)
+    this.props.createUser(this.state)
     this.setState({username: "", password: ""})
   }
 
@@ -40,7 +39,10 @@ class Signup extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {submitHandler: (newUser)=> dispatch(createUser(newUser))}
+  return {
+    createUser: (newUser)=> dispatch(createUser(newUser)),
+    createBox: (newUser)=> dispatch(createBox(newUser))
+  }
 }
 
 

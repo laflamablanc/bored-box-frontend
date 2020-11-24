@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 
 class AccountInfo extends React.Component {
   render(){
-    let currentUser = this.props.users[this.props.users.length-1]
-    console.log("current user", currentUser)
+    console.log(this.props)
+    let currentUser = this.props.user
     return(
       <div>
         <h2> Account Info </h2>
@@ -17,7 +17,7 @@ class AccountInfo extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {users: state.users}
+  return {user: state.user}
 }
 
 export default connect(mapStateToProps)(AccountInfo)

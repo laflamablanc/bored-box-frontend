@@ -4,11 +4,10 @@ import GameCard from '../components/GameCard'
 
 class GamesContainer extends React.Component {
   render(){
-    let tenGames = this.props.games.slice(0,10)
-    console.log("tenGames", tenGames)
+    let games = this.props.games.slice(0,99)
     return(
       <div>
-        {tenGames.map(game=> <GameCard game={game}/>)} 
+        {games.map(game=> <GameCard game={game}/>)}
       </div>)
   }
 }

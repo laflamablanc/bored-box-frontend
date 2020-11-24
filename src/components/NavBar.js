@@ -21,6 +21,7 @@ const NavBar = () =>
         color: 'white'
       }}
     >Home</NavLink>
+
     <NavLink
       to="/quiz"
       exact
@@ -29,6 +30,7 @@ const NavBar = () =>
         color: 'white'
       }}
     >Quiz</NavLink>
+
     <NavLink
       to="/account"
       exact
@@ -37,14 +39,16 @@ const NavBar = () =>
         color: 'white'
       }}
     >My Account</NavLink>
+
     <NavLink
-      to="/mybox"
+      to="/boxes"
       exact
       style={link}
       activeStyle={{
         color: 'white'
       }}
     >My Box</NavLink>
+
     <NavLink
       to="/games"
       exact
@@ -53,6 +57,7 @@ const NavBar = () =>
         color: 'white'
       }}
     >Games</NavLink>
+
   </div>;
 
 export default NavBar

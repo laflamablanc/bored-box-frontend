@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.css';
 import {connect} from 'react-redux'
-import {fetchApi, fetchUsers} from './redux/actions.js'
+import {fetchApi, fetchUsers, fetchBoxes} from './redux/actions.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './containers/Home'
 import AccountInfo from './containers/MyAccount/AccountInfo'
-import MyBox from './containers/MyAccount/MyBox'
+import BoxesContainer from './containers/MyAccount/BoxesContainer'
 import Quiz from './containers/Quiz'
 import GamesContainer from './containers/GamesContainer'
 import NavBar from './components/NavBar'
@@ -14,19 +14,18 @@ import Signup from './components/Signup'
 class App extends React.Component {
 
   render(){
-    console.log("State", this.props)
-    let gamesArray = this.props.api
-    console.log(gamesArray)
+    console.log("State after login", this.props.state)
+    let loggedIn = this.props.state.loggedin
     return (
       <Router>
         <div>
           <NavBar/>
-          <Route exact path= "/" component ={Home}/>
-          <Route exact path= "/quiz" component ={Quiz}/>
-          <Route exact path= "/account" component ={AccountInfo}/>
+          <Route exact path= "/" render ={() => { return loggedIn? <Home/> : <Signup/>}}/>
+          <Route exact path= "/quiz" render ={() => { return loggedIn? <Quiz/> : <Signup/>}}/>
+          <Route exact path= "/account" render ={() => { return loggedIn? <AccountInfo/> : <Signup/>}}/>
           <Route exact path= "/signup" component ={Signup}/>
-          <Route exact path= "/mybox" component ={MyBox}/>
-          <Route exact path= "/games" component ={GamesContainer}/>
+          <Route exact path= "/boxes" render ={() => { return loggedIn? <BoxesContainer/> : <Signup/>}}/>
+          <Route exact path= "/games" render ={() => { return loggedIn? <GamesContainer/> : <Signup/>}}/>
         </div>
       </Router>
 
@@ -35,18 +34,20 @@ class App extends React.Component {
 
   componentDidMount(){
     this.props.fetchApi()
-    this.props.fetchUsers()
+    // this.props.fetchUsers()
+    console.log("App State", this.state)
   }
 }
 
 function mapStateToProps(state){
-  return state
+  return {state: state}
 }
 
 function mapDispatchToProps(dispatch){
   return{
     fetchApi: () => dispatch(fetchApi()),
-    fetchUsers: () => dispatch(fetchUsers())
+    fetchUsers: () => dispatch(fetchUsers()),
+    fetchBoxes: (user) => dispatch(fetchBoxes(user))
   }
 }
 

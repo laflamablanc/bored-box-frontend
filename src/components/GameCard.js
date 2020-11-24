@@ -6,9 +6,9 @@ class GameCard extends React.Component {
 
   localClickHandler = (e) => {
     let game = this.props.game
-    let user = this.props.users[this.props.users.length-1]
-    console.log("Checking", game, user)
-    e.target.name === "add-collection" ? console.log("Add to Collection") : this.props.addGame(this.props.game, user)
+    let currentBox = this.props.currentBox
+    console.log("State", this.props.state)
+    e.target.name === "add-collection" ? console.log("Add to Collection") : this.props.addGame(game, currentBox)
   }
 
   render(){
@@ -26,12 +26,11 @@ class GameCard extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  // MAKES SURE TO FIX THIS SO ITS BOX INSTEAD OF USER
-  return {addGame: (game, user) => dispatch(addGameToBox(game, user))}
+  return {addGame: (game, currentBox) => dispatch(addGameToBox(game, currentBox))}
 }
 
 const mapStateToProps = (state) => {
-  return {users: state.users}
+  return {users: state.users, currentBox: state.currentBox, state: state}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameCard)
