@@ -29,9 +29,9 @@ class GamesContainer extends React.Component {
         return a.price - b.price
       })
       this.setState({sorted: array})
-    } else if (category === "Players"){
+    } else if (category === "Max-Players"){
       let array = this.state.games.sort(function(a,b){
-        return a.players - b.players
+        return b.players - a.players
       })
       this.setState({sorted: array})
     } else if (category === "Rating"){
@@ -41,7 +41,7 @@ class GamesContainer extends React.Component {
       this.setState({sorted: array})
     } else if (category === "Popularity"){
       let array = this.state.games.sort(function(a,b){
-        return b.rank - a.rank
+        return a.rank - b.rank
       })
       this.setState({sorted: array})
     } else {
@@ -50,7 +50,9 @@ class GamesContainer extends React.Component {
   }
 
   render(){
+    console.log("array", this.state.sorted)
     let gamesArray = this.returnArray()
+    console.log(gamesArray)
     return(
       <div>
         <Sort sortGames = {this.sortGames}/>
