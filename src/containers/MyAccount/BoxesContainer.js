@@ -21,7 +21,7 @@ class BoxesContainer extends React.Component {
         <ul>
         {this.props.currentBox.games.map(game=> <li>{game.name} - $ {game.price}</li>)}
         </ul>
-
+        <button> Checkout </button>
         </div>)
     } else {
       return (
