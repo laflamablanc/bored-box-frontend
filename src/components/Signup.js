@@ -25,7 +25,7 @@ class Signup extends React.Component {
   render(){
     return(
       <div className="login-page">
-        <h2 className="login-page-header-text login-page-header-text-lg"> Welcome to Fridg'n Hungry! </h2>
+        <h2 className="login-page-header-text login-page-header-text-lg"> Welcome to BoredBox! </h2>
         <h5 className="login-page-header-text login-page-header-text-sm"> Please Signup to Continue </h5>
         <form className="login-page-form" onSubmit = {this.localSubmitHandler}>
           <label className="login-page-header-text" for="name">Full Name:</label><br/>

@@ -8,7 +8,7 @@ import AccountInfo from './containers/MyAccount/AccountInfo'
 import BoxesContainer from './containers/MyAccount/BoxesContainer'
 import Quiz from './containers/Quiz'
 import GamesContainer from './containers/GamesContainer'
-import NavBar from './components/NavBar'
+import NavBar from './components/NavBar/NavBar'
 import Signup from './components/Signup'
 import Login from './components/Login'
 
