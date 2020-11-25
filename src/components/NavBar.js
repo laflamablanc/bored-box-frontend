@@ -1,4 +1,20 @@
 import {NavLink} from 'react-router-dom'
+import React from 'react'
+// import { MenuItems } from './MenuItems'
+
+// class NavBar extends React.Component {
+//   render(){
+//     return(
+//       <nav className="NavBarItems">
+//         <h1 className="navbar-logo">React</h1>
+//         <div className ="menu-icon">
+//           <ul>
+//             {MenuItems.map}
+//           </ul>
+//         </div>
+//       </nav>)
+//   }
+// }
 
 const link = {
   width: '100px',
@@ -8,8 +24,8 @@ const link = {
   textDecoration: 'none',
   color: 'black',
 }
-
-
+//
+//
 const NavBar = () =>
   <div>
     <NavLink

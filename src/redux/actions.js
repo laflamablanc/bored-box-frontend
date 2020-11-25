@@ -120,10 +120,10 @@ export function addGameToBox(game, currentBox){
 }
 
 export function removeGame(gameId, boxId){
-  console.log("Removing Game", gameid, boxId)
+  console.log("Removing Game", gameId, boxId)
   // return function(dispatch){
   //   fetch("http://localhost:4000/box_games",{
-  //     method: "POST",
+  //     method: "DELETE",
   //     headers: {
   //       "content-type": "application/json",
   //       "accepts": "application/json"
