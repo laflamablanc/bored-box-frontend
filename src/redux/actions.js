@@ -118,3 +118,27 @@ export function addGameToBox(game, currentBox){
     })
   }
 }
+
+export function removeGame(gameId, boxId){
+  console.log("Removing Game", gameid, boxId)
+  // return function(dispatch){
+  //   fetch("http://localhost:4000/box_games",{
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //       "accepts": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       game_id: game.id,
+  //       box_id: currentBox.id
+  //     })
+  //   })
+  //   .then(r=>r.json())
+  //   .then(boxgame => {
+  //     dispatch({
+  //       type: "ADD_GAME_TO_BOX",
+  //       payload: game
+  //     })
+  //   })
+  // }
+}

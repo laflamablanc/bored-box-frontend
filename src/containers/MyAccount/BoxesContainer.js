@@ -13,7 +13,7 @@ class BoxesContainer extends React.Component {
   totalCost = (array) => {
     let total = 0
     array.forEach(game => total += game.price)
-    return total
+    return total.toFixed(2)
   }
 
   render(){

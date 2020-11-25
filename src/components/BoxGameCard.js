@@ -1,11 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addGameToBox} from '../redux/actions'
+import {removeGame} from '../redux/actions'
 
 class BoxGameCard extends React.Component {
 
   localClickHandler = (e) => {
-    console.log("Remove Game")
+    const gameId = this.props.game.id
+    const boxId = this.props.currentBox[0].id
+    this.props.removeGame(gameId, boxId)
   }
 
   render(){
@@ -20,11 +22,11 @@ class BoxGameCard extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {addGame: (game, currentBox) => dispatch(addGameToBox(game, currentBox))}
+  return {removeGame: (gameId, boxId) => dispatch(removeGame(gameId, boxId))}
 }
 
 const mapStateToProps = (state) => {
-  return {users: state.users, currentBox: state.currentBox, state: state}
+  return {user: state.user, currentBox: state.currentBox, state: state}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoxGameCard)

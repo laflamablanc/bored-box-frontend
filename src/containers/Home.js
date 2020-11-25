@@ -4,7 +4,7 @@ import React from 'react';
 // import ProductCategories from './modules/views/ProductCategories';
 // import ProductSmokingHero from './modules/views/ProductSmokingHero';
 // import AppFooter from './modules/views/AppFooter';
-import ProductHero from '../views/ProductHero';
+import HeroImage from '../components/HeroImage';
 // import ProductValues from './modules/views/ProductValues';
 // import ProductHowItWorks from './modules/views/ProductHowItWorks';
 // import ProductCTA from './modules/views/ProductCTA';
@@ -13,9 +13,7 @@ import ProductHero from '../views/ProductHero';
 function Index() {
   return (
     <React.Fragment>
-
-      <ProductHero />
-
+      <HeroImage/>
     </React.Fragment>
   );
 }
