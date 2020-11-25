@@ -18,12 +18,12 @@ class BoxesContainer extends React.Component {
 
   render(){
     let gamesArray = this.props.currentBox.games
-    console.log(gamesArray)
+    console.log("GAMES ARRAY", gamesArray)
     if (gamesArray) {
       return(<div>
         <h2>My Boxes:</h2>
         <h3> {this.props.currentBox.length === 0 ? "No Boxes Found" : "" } </h3>
-        <button onClick={this.localClickHandler}>
+        // <button onClick={this.localClickHandler}>
         Create New Box
         </button>
         <ul>

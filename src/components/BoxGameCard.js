@@ -6,8 +6,12 @@ class BoxGameCard extends React.Component {
 
   localClickHandler = (e) => {
     const gameId = this.props.game.id
-    const boxId = this.props.currentBox[0].id
-    this.props.removeGame(gameId, boxId)
+    // console.log("Game Id", gameId)
+    const boxGameId = this.props.currentBox.box_games.find(element => element.game_id === gameId)
+    console.log("BOXGAMEID", boxGameId.id)
+    // const boxId = this.props.currentBox[0].id
+    this.props.removeGame(boxGameId.id, gameId)
+    // console.log("Remove", this.props)
   }
 
   render(){
@@ -26,7 +30,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  return {user: state.user, currentBox: state.currentBox, state: state}
+  return {currentBox: state.currentBox}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoxGameCard)

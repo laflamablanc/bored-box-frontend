@@ -6,7 +6,6 @@ const defaultState = {
   user: [],
   boxes: [],
   currentBox: [],
-  boxgames: [],
   loggedin: false
 }
 
@@ -46,6 +45,7 @@ function boxesReducer(state = defaultState.boxes, action){
       case "ADD_USER":
         return action.payload
       case "GET_USER":
+
         return action.payload
       default:
         return state
@@ -68,29 +68,30 @@ function boxesReducer(state = defaultState.boxes, action){
       case "CREATE_BOX":
         return action.payload
       case "ADD_GAME_TO_BOX":
-        console.log(state)
         return {
           ...state,
           games: [...state.games, action.payload]
         }
+        case "REMOVE_GAME_FROM_BOX":
+          return {
+            ...state,
+            games: [state.games.filter(game => game.id !== action.payload)]
+          }
       case "GET_USER":
-        return {
-          ...action.payload.boxes.slice(-1),
-          games: action.payload.boxgames
-        }
+        return action.payload.boxes.slice(-1)[0]
       default:
         return state
     }
   }
 
-  function boxGameReducer(state = defaultState.boxgames, action){
-    switch(action.type){
-      case "GET_USER":
-        return action.payload.boxgames
-      default:
-        return state
-    }
-  }
+  // function boxGameReducer(state = defaultState.boxgames, action){
+  //   switch(action.type){
+  //     case "GET_USER":
+  //       return action.payload.boxgames
+  //     default:
+  //       return state
+  //   }
+  // }
 
 const rootReducer = combineReducers({
   api: apiReducer,
@@ -99,7 +100,6 @@ const rootReducer = combineReducers({
   boxes: boxesReducer,
   currentBox: currentBoxReducer,
   loggedin: loginReducer,
-  boxgames: boxGameReducer
 })
 
 
