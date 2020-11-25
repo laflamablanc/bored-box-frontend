@@ -113,7 +113,8 @@ export function addGameToBox(game, currentBox){
     .then(boxgame => {
       dispatch({
         type: "ADD_GAME_TO_BOX",
-        payload: game
+        payload: game,
+        boxgame: boxgame
       })
     })
   }

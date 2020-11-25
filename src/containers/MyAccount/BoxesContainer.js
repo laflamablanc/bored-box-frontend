@@ -23,11 +23,8 @@ class BoxesContainer extends React.Component {
       return(<div>
         <h2>My Boxes:</h2>
         <h3> {this.props.currentBox.length === 0 ? "No Boxes Found" : "" } </h3>
-        // <button onClick={this.localClickHandler}>
-        Create New Box
-        </button>
         <ul>
-          {gamesArray.map(game=> <BoxGameCard game={game}/>)}
+          {gamesArray.map(game=> <BoxGameCard key = {game.id} game={game}/>)}
         </ul>
         <button> Checkout </button>
         <h2> Total: ${this.totalCost(gamesArray)}</h2>

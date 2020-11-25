@@ -30,16 +30,16 @@ function boxesReducer(state = defaultState.boxes, action){
   }
 }
 
-  // function gamesReducer(state = defaultState.games, action){
-  //   switch (action.type){
-  //     case "ADD_GAME":
-  //       console.log("adding games")
-  //       return {}
-  //     default:
-  //       return state
-  //   }
-  // }
-  //
+  function collectionReducer(state = defaultState.games, action){
+    switch (action.type){
+      case "ADD_GAME_TO_COLLECTION":
+        console.log("adding games")
+        return {}
+      default:
+        return state
+    }
+  }
+
   function usersReducer(state = defaultState.user, action){
     switch (action.type){
       case "ADD_USER":
@@ -70,12 +70,13 @@ function boxesReducer(state = defaultState.boxes, action){
       case "ADD_GAME_TO_BOX":
         return {
           ...state,
-          games: [...state.games, action.payload]
+          games: [...state.games, action.payload],
+          box_games: [...state.box_games, action.boxgame]
         }
         case "REMOVE_GAME_FROM_BOX":
           return {
             ...state,
-            games: [state.games.filter(game => game.id !== action.payload)]
+            games: state.games.filter(game => game.id !== action.payload)
           }
       case "GET_USER":
         return action.payload.boxes.slice(-1)[0]
@@ -84,18 +85,10 @@ function boxesReducer(state = defaultState.boxes, action){
     }
   }
 
-  // function boxGameReducer(state = defaultState.boxgames, action){
-  //   switch(action.type){
-  //     case "GET_USER":
-  //       return action.payload.boxgames
-  //     default:
-  //       return state
-  //   }
-  // }
 
 const rootReducer = combineReducers({
   api: apiReducer,
-  // games: gamesReducer,
+  collection: collectionReducer,
   user: usersReducer,
   boxes: boxesReducer,
   currentBox: currentBoxReducer,

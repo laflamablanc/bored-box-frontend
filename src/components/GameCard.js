@@ -7,7 +7,6 @@ class GameCard extends React.Component {
   localClickHandler = (e) => {
     let game = this.props.game
     let currentBox = this.props.currentBox
-    console.log("State", this.props.state)
     e.target.name === "add-collection" ? console.log("Add to Collection") : this.props.addGame(game, currentBox)
   }
 
