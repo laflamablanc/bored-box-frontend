@@ -1,30 +1,40 @@
 import {NavLink} from 'react-router-dom'
 import React from 'react'
 import { MenuItems } from './MenuItems'
+import './NavBar.css'
+import { userHistory } from 'react-router-dom'
+
+const link = {
+  width: '100px',
+  padding: '12px',
+  margin: '0 6px 6px',
+  backgroundColor: "#ff6a00",
+  textDecoration: 'none',
+  color: 'black',
+  fontFamily: 'futura',
+}
 
 class NavBar extends React.Component {
+
+  // clickHandler = () => {
+  //   history.push("/signup")
+  // }
+
   render(){
     return(
       <nav className="NavBarItems">
-        <h1 className="navbar-logo">React</h1>
+        <img className = "NavBarLogo" src="/logo.png" onClick={this.clickHandler}/>
         <div className ="menu-icon">
-          <ul>
-            {MenuItems.map(item => <NavLink to="/">{item.title}</NavLink>)}
-          </ul>
         </div>
+        <ul className = "NavMenu">
+          {MenuItems.map(item => <NavLink to={item.url} exact style={link} activeStyle={{color: 'white'}}>{item.title}</NavLink>)}
+        </ul>
       </nav>
     )
   }
 }
 
-// const link = {
-//   width: '100px',
-//   padding: '12px',
-//   margin: '0 6px 6px',
-//   background: 'orange',
-//   textDecoration: 'none',
-//   color: 'black',
-// }
+
 //
 //
 // const NavBar = () =>

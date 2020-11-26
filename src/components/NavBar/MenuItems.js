@@ -1,27 +1,47 @@
 export const MenuItems = [
   {
     title: 'Home',
-    url: '#',
+    url: '/',
     cName: 'nav-links'
   },
   {
     title: 'About Us',
-    url: '#',
+    url: '/',
     cName: 'nav-links'
   },
   {
     title: 'Get Started',
-    url: '#',
+    url: '/signup',
     cName: 'nav-links'
   },
   {
     title: 'FAQ',
-    url: '#',
+    url: '/',
     cName: 'nav-links'
   },
   {
     title: 'Log In',
-    url: '#',
+    url: '/login',
     cName: 'nav-links'
   },
+  {
+    title: 'Quiz',
+    url: '/quiz',
+    cName: 'nav-links'
+  },
+  {
+    title: 'My Boxes',
+    url: '/boxes',
+    cName: 'nav-links'
+  },
+  {
+    title: 'Games',
+    url: '/games',
+    cName: 'nav-links'
+  },
+  {
+    title: 'My Account',
+    url: '/account',
+    cName: 'nav-links'
+  }
 ]

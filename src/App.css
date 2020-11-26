@@ -99,3 +99,12 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.works-card {
+  align-items: center;
+  justify-content: center;
+}
+
+.works-card img {
+  width: 220px;
+}

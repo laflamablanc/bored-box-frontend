@@ -5,17 +5,19 @@ import React from 'react';
 // import ProductSmokingHero from './modules/views/ProductSmokingHero';
 // import AppFooter from './modules/views/AppFooter';
 import HeroImage from '../components/HeroImage';
+import HowItWorks from '../components/HowItWorks';
 // import ProductValues from './modules/views/ProductValues';
 // import ProductHowItWorks from './modules/views/ProductHowItWorks';
 // import ProductCTA from './modules/views/ProductCTA';
 // import AppAppBar from './modules/views/AppAppBar';
 
-function Index() {
+function Home() {
   return (
     <React.Fragment>
       <HeroImage/>
+      <HowItWorks/>
     </React.Fragment>
   );
 }
 
-export default withRoot(Index);
+export default withRoot(Home);

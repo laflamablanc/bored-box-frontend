@@ -21,7 +21,7 @@ class App extends React.Component {
       <Router>
         <div>
           <NavBar/>
-          <Route exact path= "/" render ={() => { return loggedIn? <Home/> : <Login/>}}/>
+          <Route exact path= "/" component={Home}/>
           <Route exact path= "/quiz" render ={() => { return loggedIn? <Quiz/> : <Login/>}}/>
           <Route exact path= "/account" render ={() => { return loggedIn? <AccountInfo/> : <Login/>}}/>
           <Route exact path= "/signup" component ={Signup}/>
