@@ -40,7 +40,7 @@
 .GameCard {
   border: 2px solid black;
   margin: 50px;
-  width: 200px;
+  width: 280px;
 }
 
 .GameCard img {
@@ -107,4 +107,8 @@
 
 .works-card img {
   width: 220px;
+}
+
+input.checked[type="radio"]{
+  visibility:hidden;
 }

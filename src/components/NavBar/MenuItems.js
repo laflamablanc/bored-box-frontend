@@ -20,6 +20,11 @@ export const MenuItems = [
     cName: 'nav-links'
   },
   {
+    title: 'Games',
+    url: '/games',
+    cName: 'nav-links'
+  },
+  {
     title: 'Log In',
     url: '/login',
     cName: 'nav-links'
@@ -35,8 +40,8 @@ export const MenuItems = [
     cName: 'nav-links'
   },
   {
-    title: 'Games',
-    url: '/games',
+    title: 'My Collection',
+    url: '/collection',
     cName: 'nav-links'
   },
   {

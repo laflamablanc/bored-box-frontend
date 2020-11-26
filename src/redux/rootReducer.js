@@ -34,7 +34,9 @@ function boxesReducer(state = defaultState.boxes, action){
     switch (action.type){
       case "ADD_GAME_TO_COLLECTION":
         console.log("adding games")
-        return {}
+        return [...state, action.payload]
+      case "GET_USER":
+        return action.payload.collection
       default:
         return state
     }
@@ -45,7 +47,6 @@ function boxesReducer(state = defaultState.boxes, action){
       case "ADD_USER":
         return action.payload
       case "GET_USER":
-
         return action.payload
       default:
         return state

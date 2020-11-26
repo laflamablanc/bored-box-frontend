@@ -8,6 +8,7 @@ import AccountInfo from './containers/MyAccount/AccountInfo'
 import BoxesContainer from './containers/MyAccount/BoxesContainer'
 import Quiz from './containers/Quiz'
 import GamesContainer from './containers/GamesContainer'
+import GamesCollection from './containers/MyCollection/GamesCollection'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './components/Signup'
 import Login from './components/Login'
@@ -27,6 +28,7 @@ class App extends React.Component {
           <Route exact path= "/signup" component ={Signup}/>
           <Route exact path= "/login" component ={Login}/>
           <Route exact path= "/boxes" render ={() => { return loggedIn? <BoxesContainer/> : <Login/>}}/>
+          <Route exact path= "/collection" render ={() => { return loggedIn? <GamesCollection/> : <Login/>}}/>
           <Route exact path= "/games" render ={() => { return loggedIn? <GamesContainer/> : <Login/>}}/>
         </div>
       </Router>
