@@ -53,6 +53,7 @@ class GamesCollection extends React.Component {
   // }
 
   render(){
+    console.log("STATE", this.props.collection)
     let collectionArray = this.props.collection
     return(
       <div className="games-container">

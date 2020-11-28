@@ -133,3 +133,28 @@ export function removeGame(boxGameId, gameId){
     })
   }
 }
+
+export function addGameCollection(userId, game){
+  console.log("ADDING GAME TO COLLECTION", userId, game.id)
+  return function(dispatch){
+    fetch("http://localhost:4000/user_games", {
+      method: "POST",
+      headers: {
+        "accepts": "application/json",
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: userId,
+        game_id: game.id
+      })
+    })
+    .then(r=>r.json())
+    .then(usergame => {
+      dispatch({
+        type: "ADD_GAME_TO_COLLECTION",
+        usergame: usergame,
+        game: game
+      })
+    })
+  }
+}
