@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import GameCard from '../components/GameCard'
 import Sort from '../components/Sort'
+import Search from '../components/Search'
+
 
 class GamesContainer extends React.Component {
 
@@ -55,9 +57,15 @@ class GamesContainer extends React.Component {
     console.log(gamesArray)
     return(
       <div>
-        <Sort sortGames = {this.sortGames}/>
-        {gamesArray.map(game=> <GameCard key = {game.id} game={game}/>)}
-      </div>)
+        <div>
+          <Sort sortGames = {this.sortGames}/>
+          <Search/>
+        </div>
+        <div className = "games-container">
+          {gamesArray.map(game=> <GameCard key = {game.id} game={game}/>)}
+        </div>
+      </div>
+    )
   }
 }
 

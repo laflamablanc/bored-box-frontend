@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import GameCard from './GameCard'
+import './GamesCollection.css';
 // import Sort from '../components/Sort'
 
 
@@ -54,7 +55,7 @@ class GamesCollection extends React.Component {
   render(){
     let collectionArray = this.props.collection
     return(
-      <div>
+      <div className="games-container">
         {collectionArray.map(game=> <GameCard key = {game.id} game={game}/>)}
       </div>)
   }

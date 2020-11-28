@@ -12,13 +12,15 @@ class GameCard extends React.Component {
   }
 
   render(){
+    console.log(this.props.currentBox)
+    let game = this.props.game
     return(
       <div className="GameCard">
-        <h1>{this.props.game.name}</h1>
-        <img src={this.props.game.image}/>
-        <div>Price: ${this.props.game.price}</div>
-        <div>Number of Players: {this.props.game.players}</div>
-        <StarRating/>
+        <h1>{game.name}</h1>
+        <img src={game.image}/>
+        <h4>Genre: {game.genre} </h4>
+        <h4>Number of Players: {game.min_players} - {game.max_players}</h4>
+        <h4>My Rating:<StarRating/></h4>
       </div>
     )
   }

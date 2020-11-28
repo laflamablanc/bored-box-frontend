@@ -39,13 +39,17 @@
 
 .GameCard {
   border: 2px solid black;
-  margin: 50px;
+  margin: 20px;
   width: 280px;
 }
 
 .GameCard img {
     width: 100%;
-    height: auto;
+    max-height: 300px;
+}
+
+.GameCard img:hover {
+  opacity: 0.5;
 }
 
 .boxes-container {
