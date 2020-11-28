@@ -2,7 +2,7 @@ import {NavLink} from 'react-router-dom'
 import React from 'react'
 import { MenuItems } from './MenuItems'
 import './NavBar.css'
-import { userHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const link = {
   width: '100px',
@@ -14,24 +14,24 @@ const link = {
   fontFamily: 'futura',
 }
 
-class NavBar extends React.Component {
+const NavBar = () => {
 
-  // clickHandler = () => {
-  //   history.push("/signup")
-  // }
+  let history = useHistory()
 
-  render(){
-    return(
-      <nav className="NavBarItems">
-        <img className = "NavBarLogo" src="/logo.png" onClick={this.clickHandler}/>
-        <div className ="menu-icon">
-        </div>
-        <ul className = "NavMenu">
-          {MenuItems.map(item => <NavLink to={item.url} exact style={link} activeStyle={{color: 'white'}}>{item.title}</NavLink>)}
-        </ul>
-      </nav>
-    )
+  function handleClick(){
+    history.push("/")
   }
+
+  return(
+    <nav className="NavBarItems">
+      <img className = "NavBarLogo" src="/logo.png" onClick={handleClick}/>
+      <div className ="menu-icon">
+      </div>
+      <ul className = "NavMenu">
+        {MenuItems.map(item => <NavLink to={item.url} exact style={link} activeStyle={{color: 'white'}}>{item.title}</NavLink>)}
+      </ul>
+    </nav>
+  )
 }
 
 

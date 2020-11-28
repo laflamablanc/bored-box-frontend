@@ -1,9 +1,9 @@
 export const MenuItems = [
-  {
-    title: 'Home',
-    url: '/',
-    cName: 'nav-links'
-  },
+  // {
+  //   title: 'Home',
+  //   url: '/',
+  //   cName: 'nav-links'
+  // },
   {
     title: 'About Us',
     url: '/',
@@ -24,11 +24,11 @@ export const MenuItems = [
     url: '/games',
     cName: 'nav-links'
   },
-  {
-    title: 'Log In',
-    url: '/login',
-    cName: 'nav-links'
-  },
+  // {
+  //   title: 'Log In',
+  //   url: '/login',
+  //   cName: 'nav-links'
+  // },
   {
     title: 'Quiz',
     url: '/quiz',

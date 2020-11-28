@@ -15,7 +15,9 @@
   justify-content: right;
   align-items: center;
   font-size: 1.2rem;
+  cursor: pointer;
 }
+
 
 .NavMenu {
   grid-gap: 10px;

@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {removeGame} from '../redux/actions'
+import Grid from '@material-ui/core/Grid';
+
 
 class BoxGameCard extends React.Component {
 
@@ -16,11 +18,23 @@ class BoxGameCard extends React.Component {
 
   render(){
     return(
-      <li className="BoxGameCard">
-        <h4> {this.props.game.name}</h4>
-        <div>Price: ${this.props.game.price}</div>
-        <button name="remove" onClick = {this.localClickHandler}> X </button>
-      </li>
+      <div className="box-game-card">
+        <React.Fragment>
+          <Grid item xs ={3} spacing ={1}>
+            <img src ={this.props.game.image} alt = {this.props.game.title}/>
+          </Grid>
+          <Grid xs ={3}>
+            <h2> {this.props.game.name}</h2>
+          </Grid>
+          <Grid xs ={3}>
+            <h3> QTY: 1 </h3>
+          </Grid>
+          <Grid xs ={3}>
+            <h3>Price: ${this.props.game.price}</h3>
+            <button name="remove" onClick = {this.localClickHandler}> Remove </button>
+          </Grid>
+        </React.Fragment>
+      </div>
     )
   }
 }

@@ -3,6 +3,9 @@ import {connect} from 'react-redux'
 import {createBox} from '../../redux/actions.js'
 import {fetchBoxes} from '../../redux/actions.js'
 import BoxGameCard from '../../components/BoxGameCard'
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+
 
 class BoxesContainer extends React.Component {
 
@@ -20,18 +23,29 @@ class BoxesContainer extends React.Component {
     let gamesArray = this.props.currentBox.games
     console.log("GAMES ARRAY", gamesArray)
     if (gamesArray) {
-      return(<div>
-        <h2>My Boxes:</h2>
-        <h3> {this.props.currentBox.length === 0 ? "No Boxes Found" : "" } </h3>
-        <ul>
-          {gamesArray.map(game=> <BoxGameCard key = {game.id} game={game}/>)}
-        </ul>
-        <button> Checkout </button>
-        <h2> Total: ${this.totalCost(gamesArray)}</h2>
+      return(
+        <div className = "boxes-container">
+          <h2>My Boxes:</h2>
+          <h3> {this.props.currentBox.length === 0 ? "No Boxes Found" : "" } </h3>
+          <ul>
+              {gamesArray.map(game=> {
+                  return (
+                  <div>
+                    <BoxGameCard key = {game.id} game={game}/>
+                    <Divider/>
+                  </div>
+                )
+              })
+              }
+          </ul>
+          <div className="checkout-container">
+            <h2> Total: ${this.totalCost(gamesArray)}</h2>
+            <button> Checkout </button>
+          </div>
         </div>)
     } else {
       return (
-        <div>
+        <div className = "boxes-container">
           <h2>Box Is Empty </h2>
           <button onClick={this.localClickHandler}>
           Create New Box
