@@ -9,15 +9,25 @@ class GamesContainer extends React.Component {
 
   state = {
     games: this.props.games,
-    sorted: null
+    sorted: null,
+    filtered: null,
+    searchValue: null
   }
 
   returnArray = () => {
-    if(this.state.sorted === null) {
+    if(this.state.sorted === null && this.state.filtered === null) {
       return this.state.games
+    } else if (this.state.filtered !== null) {
+      return this.state.filtered
     } else {
       return this.state.sorted
     }
+  }
+
+  searchGames = (e) => {
+    console.log(e.target.value)
+    let filteredArray = this.state.games.filter(game => game.name.toLowerCase().includes(e.target.value.toLowerCase()))
+    this.setState({filtered: filteredArray})
   }
 
   sortGames = (category) => {
@@ -52,14 +62,14 @@ class GamesContainer extends React.Component {
   }
 
   render(){
-    console.log("array", this.state.sorted)
+    console.log("array", this.state)
     let gamesArray = this.returnArray()
     console.log(gamesArray)
     return(
       <div>
         <div>
           <Sort sortGames = {this.sortGames}/>
-          <Search/>
+          <Search searchValue = {this.state.searchValue} searchGames = {this.searchGames}/>
         </div>
         <div className = "games-container">
           {gamesArray.map(game=> <GameCard key = {game.id} game={game}/>)}

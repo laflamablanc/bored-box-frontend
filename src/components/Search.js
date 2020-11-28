@@ -1,7 +1,11 @@
 import React from 'react'
 
-function Search () {
-  return <div>Search</div>
+function Search (props) {
+  return (
+    <form>
+      <input placeholder="Search Games" value={props.searchValue} onChange={props.searchGames}/>
+    </form>
+  )
 }
 
 export default Search
