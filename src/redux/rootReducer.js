@@ -33,9 +33,20 @@ function boxesReducer(state = defaultState.boxes, action){
   function collectionReducer(state = defaultState.games, action){
     switch (action.type){
       case "ADD_GAME_TO_COLLECTION":
-        return [...state, action.game]
+        return {
+          games: [...state.games, action.game],
+          user_games: [...state.user_games, action.user_game]
+        }
+      case "REMOVE_GAME_FROM_COLLECTION":
+        return {
+          games: state.games.filter(game => game.id !== action.gameId),
+          user_games: state.user_games.filter(user_game => user_game.id !== action.userGameId)
+        }
       case "GET_USER":
-        return action.payload.collection
+        return {
+          games: action.payload.collection,
+          user_games: action.payload.user_games
+        }
       default:
         return state
     }

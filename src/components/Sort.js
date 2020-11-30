@@ -8,9 +8,9 @@ class Sort extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <h2>Sort By:</h2>
-        <select onChange={this.changeHandler}>
+        <select className="sort" onChange={this.changeHandler}>
           <option value="Popularity">Popularity</option>
           <option value="Price-Hi">Price: Lo</option>
           <option value="Price-Lo">Price: Hi</option>

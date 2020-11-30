@@ -1,15 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addGameToBox, addGameCollection} from '../../redux/actions'
+import {removeGameFromCollection} from '../../redux/actions'
 import StarRating from './StarRating'
 
 class GameCard extends React.Component {
 
   localClickHandler = (e) => {
-    let user = this.props.user
     let game = this.props.game
-    let currentBox = this.props.currentBox
-    e.target.name === "add-collection" ? this.props.addGameCollection(user.id, game) : this.props.addGame(game, currentBox)
+    const userGameId = this.props.collection.user_games.find(element => element.game_id === game.id).id
+    this.props.removeGameFromCollection(userGameId, game.id)
   }
 
   render(){
@@ -21,6 +20,7 @@ class GameCard extends React.Component {
         <h4>Genre: {game.genre} </h4>
         <h4>Number of Players: {game.min_players} - {game.max_players}</h4>
         <h4>My Rating:<StarRating/></h4>
+        <button onClick={this.localClickHandler}> Remove </button>
       </div>
     )
   }
@@ -28,13 +28,12 @@ class GameCard extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addGame: (game, currentBox) => dispatch(addGameToBox(game, currentBox)),
-    addGameCollection: (userId, game) => dispatch(addGameCollection(userId, game))
+    removeGameFromCollection: (userGameId, gameId) => dispatch(removeGameFromCollection(userGameId, gameId))
   }
 }
 
 const mapStateToProps = (state) => {
-  return {user: state.user, currentBox: state.currentBox, state: state}
+  return {user: state.user, collection: state.collection, state: state}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameCard)

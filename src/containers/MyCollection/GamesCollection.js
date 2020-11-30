@@ -54,7 +54,7 @@ class GamesCollection extends React.Component {
 
   render(){
     console.log("STATE", this.props.collection)
-    let collectionArray = this.props.collection
+    let collectionArray = this.props.collection.games
     return(
       <div className="games-container">
         {collectionArray.map(game=> <GameCard key = {game.id} game={game}/>)}

@@ -120,7 +120,7 @@ export function addGameToBox(game, currentBox){
   }
 }
 
-export function removeGame(boxGameId, gameId){
+export function removeGameFromBox(boxGameId, gameId){
   console.log("Removing:", boxGameId)
   return function(dispatch){
     fetch("http://localhost:4000/box_games/" + boxGameId, {method: "DELETE"})
@@ -128,7 +128,7 @@ export function removeGame(boxGameId, gameId){
     .then(boxgame => {
       dispatch({
         type: "REMOVE_GAME_FROM_BOX",
-        payload: gameId
+        game: gameId
       })
     })
   }
@@ -152,8 +152,23 @@ export function addGameCollection(userId, game){
     .then(usergame => {
       dispatch({
         type: "ADD_GAME_TO_COLLECTION",
-        usergame: usergame,
+        user_game: usergame,
         game: game
+      })
+    })
+  }
+}
+
+export function removeGameFromCollection(userGameId, gameId){
+  console.log("Removing:", userGameId)
+  return function(dispatch){
+    fetch("http://localhost:4000/user_games/" + userGameId, {method: "DELETE"})
+    .then(r=>r.json())
+    .then(usergame => {
+      dispatch({
+        type: "REMOVE_GAME_FROM_COLLECTION",
+        gameId: gameId,
+        userGameId: userGameId
       })
     })
   }

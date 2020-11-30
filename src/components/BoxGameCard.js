@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {removeGame} from '../redux/actions'
+import {removeGameFromBox} from '../redux/actions'
 import Grid from '@material-ui/core/Grid';
 
 
@@ -12,7 +12,7 @@ class BoxGameCard extends React.Component {
     const boxGameId = this.props.currentBox.box_games.find(element => element.game_id === gameId)
     console.log("BOXGAMEID", boxGameId.id)
     // const boxId = this.props.currentBox[0].id
-    this.props.removeGame(boxGameId.id, gameId)
+    this.props.removeGameFromBox(boxGameId.id, gameId)
     // console.log("Remove", this.props)
   }
 
@@ -40,7 +40,7 @@ class BoxGameCard extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {removeGame: (gameId, boxId) => dispatch(removeGame(gameId, boxId))}
+  return {removeGameFromBox: (gameId, boxId) => dispatch(removeGameFromBox(gameId, boxId))}
 }
 
 const mapStateToProps = (state) => {
