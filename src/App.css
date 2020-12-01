@@ -219,3 +219,7 @@ input.checked[type="radio"]{
   font: 15px bold;
   font-family: "Futura"
 }
+
+.strike {
+  color: red
+}

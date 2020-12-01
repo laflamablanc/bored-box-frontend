@@ -4,7 +4,7 @@ import {removeGameFromBox} from '../redux/actions'
 import Grid from '@material-ui/core/Grid';
 
 
-class BoxGameCard extends React.Component {
+class LastBoxGameCard extends React.Component {
 
   localClickHandler = (e) => {
     const gameId = this.props.game.id
@@ -30,8 +30,9 @@ class BoxGameCard extends React.Component {
             <h3> QTY: 1 </h3>
           </Grid>
           <Grid xs ={3}>
-            <h3>Price: ${this.props.game.price}</h3>
-            <button name="remove" onClick = {this.localClickHandler}> Remove </button>
+            <h3>Price: ${(this.props.game.price - 20.00).toFixed(2)}</h3>
+            <button name="remove" onClick = {this.localClickHandler}> Keep Game</button>
+            <button name="remove" onClick = {this.localClickHandler}> Return Game</button>
           </Grid>
         </React.Fragment>
       </div>
@@ -47,4 +48,4 @@ const mapStateToProps = (state) => {
   return {currentBox: state.currentBox}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoxGameCard)
+export default connect(mapStateToProps, mapDispatchToProps)(LastBoxGameCard)
