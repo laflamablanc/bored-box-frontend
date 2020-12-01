@@ -97,7 +97,7 @@ class GamesContainer extends React.Component {
               let myGame = gamesArray.find(gme => gme.id === id)
               return (
                 <div>
-                  <GameShow game = {myGame}/>
+                  <GameShow game = {myGame} userProfile={this.props.user.user_profile}/>
                 </div>
               )
             }} />
@@ -122,7 +122,10 @@ class GamesContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {games: state.api}
+  return {
+    games: state.api,
+    user: state.user
+  }
 }
 
 export default connect(mapStateToProps)(GamesContainer)
