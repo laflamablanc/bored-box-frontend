@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './containers/Home'
 import AccountInfo from './containers/MyAccount/AccountInfo'
 import BoxesContainer from './containers/MyAccount/BoxesContainer'
+import RecommendationsContainer from './containers/MyAccount/RecommendationsContainer'
 import Quiz from './containers/Quiz'
 import GamesContainer from './containers/GamesContainer'
 import GamesCollection from './containers/MyCollection/GamesCollection'
@@ -29,7 +30,8 @@ class App extends React.Component {
           <Route exact path= "/login" component ={Login}/>
           <Route exact path= "/boxes" render ={() => { return loggedIn? <BoxesContainer/> : <Login/>}}/>
           <Route exact path= "/collection" render ={() => { return loggedIn? <GamesCollection/> : <Login/>}}/>
-          <Route exact path= "/games" render ={() => { return loggedIn? <GamesContainer/> : <Login/>}}/>
+          <Route path= "/games" render ={(routerProps) => { return loggedIn? <GamesContainer {...routerProps}/> : <Login/>}}/>
+          <Route exact path= "/recommendations" render ={() => { return loggedIn? <RecommendationsContainer/> : <Login/>}}/>
         </div>
       </Router>
 

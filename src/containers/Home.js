@@ -6,6 +6,7 @@ import React from 'react';
 // import AppFooter from './modules/views/AppFooter';
 import HeroImage from '../components/HeroImage';
 import HowItWorks from '../components/HowItWorks';
+import Graph from '../components/Graph';
 // import ProductValues from './modules/views/ProductValues';
 // import ProductHowItWorks from './modules/views/ProductHowItWorks';
 // import ProductCTA from './modules/views/ProductCTA';
@@ -16,6 +17,7 @@ function Home() {
     <React.Fragment>
       <HeroImage/>
       <HowItWorks/>
+      <Graph/>
     </React.Fragment>
   );
 }

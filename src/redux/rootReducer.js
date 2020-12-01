@@ -6,6 +6,8 @@ const defaultState = {
   user: [],
   boxes: [],
   currentBox: [],
+  lastBox: [],
+  gameRecs: [],
   loggedin: false
 }
 
@@ -96,6 +98,39 @@ function boxesReducer(state = defaultState.boxes, action){
     }
   }
 
+  function lastBoxReducer(state = defaultState.currentBox, action){
+    switch (action.type){
+      case "CREATE_BOX":
+        return action.payload
+      case "ADD_GAME_TO_BOX":
+        return {
+          ...state,
+          games: [...state.games, action.payload],
+          box_games: [...state.box_games, action.boxgame]
+        }
+        case "REMOVE_GAME_FROM_BOX":
+          return {
+            ...state,
+            games: state.games.filter(game => game.id !== action.payload)
+          }
+      case "GET_USER":
+        return action.payload.boxes.slice(-2)[0]
+      default:
+        return state
+    }
+  }
+
+  function gameRecsReducer(state = defaultState.gameRecs, action){
+    switch (action.type){
+      case "ADD_USER":
+        return action.payload
+      case "GET_USER":
+        return action.payload.game_recs
+      default:
+        return state
+    }
+  }
+
 
 const rootReducer = combineReducers({
   api: apiReducer,
@@ -103,6 +138,8 @@ const rootReducer = combineReducers({
   user: usersReducer,
   boxes: boxesReducer,
   currentBox: currentBoxReducer,
+  lastBox: lastBoxReducer,
+  gameRecs: gameRecsReducer,
   loggedin: loginReducer,
 })
 

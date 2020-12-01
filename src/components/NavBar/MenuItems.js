@@ -45,6 +45,11 @@ export const MenuItems = [
     cName: 'nav-links'
   },
   {
+    title: 'My Recommendations',
+    url: '/recommendations',
+    cName: 'nav-links'
+  },
+  {
     title: 'My Account',
     url: '/account',
     cName: 'nav-links'

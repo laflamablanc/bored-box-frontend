@@ -1,29 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addGameToBox, addGameCollection} from '../redux/actions'
+import { useHistory } from "react-router-dom";
 
-class GameCard extends React.Component {
+const GameCard = (props) => {
 
-  localClickHandler = (e) => {
-    let user = this.props.user
-    let game = this.props.game
-    let currentBox = this.props.currentBox
-    e.target.name === "add-collection" ? this.props.addGameCollection(user.id, game) : this.props.addGame(game, currentBox)
+  const localClickHandler = (e) => {
+    let user = props.user
+    let game = props.game
+    let currentBox = props.currentBox
+    e.target.name === "add-collection" ? props.addGameCollection(user.id, game) : props.addGame(game, currentBox)
   }
-
-  render(){
-    let game = this.props.game
+    let history = useHistory()
+    let game = props.game
     return(
       <div className="GameCard">
         <h1>{game.name}</h1>
-        <img src={game.image} alt={game.name}/>
+        <img src={game.image} alt={game.name} onClick = {()=>history.push("/games/" + game.id)}/>
         <div>Price: ${game.price}</div>
         <div>Number of Players: {game.min_players} - {game.max_players}</div>
-        <button name="add-collection" onClick = {this.localClickHandler}> Add to Collection </button>
-        <button name="add-box" onClick = {this.localClickHandler}> Add to Box </button>
+        <button name="add-collection" onClick = {localClickHandler}> Add to Collection </button>
+        <button name="add-box" onClick = {localClickHandler}> Add to Box </button>
       </div>
     )
-  }
+
 }
 
 const mapDispatchToProps = (dispatch) => {
