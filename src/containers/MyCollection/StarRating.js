@@ -1,11 +1,19 @@
 import React, {useState} from 'react'
 import { FaStar } from 'react-icons/fa'
 
-const StarRating = () => {
+const StarRating = (props) => {
   const [rating, setRating] = useState(null)
   const [hover, setHover] = useState(null)
+  
 
+
+  const handleClick = (ratingValue) => {
+    setRating(ratingValue)
+    props.ratingHandler(ratingValue)
+
+  }
   return(
+
     <div>
       {[...Array(5)].map((star, idx)=>{
         const ratingValue = idx + 1
@@ -17,7 +25,7 @@ const StarRating = () => {
               checked
               name="rating"
               value={ratingValue}
-              onClick={()=>setRating(ratingValue)}
+              onClick={()=> handleClick(ratingValue)}
             />
             <FaStar
               className = "star"

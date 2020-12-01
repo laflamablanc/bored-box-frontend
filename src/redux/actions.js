@@ -173,3 +173,19 @@ export function removeGameFromCollection(userGameId, gameId){
     })
   }
 }
+
+export function rateGame(rating, userGameId){
+  console.log("RATING INSIDE FETCH", rating)
+  return function(dispatch){
+    fetch("http://localhost:4000/user_games/" + userGameId,{
+      method: "PATCH",
+      headers: {
+        "accept": "application/json",
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({rating: rating})
+    })
+    .then(r=>r.json())
+    .then(game => console.log("rate game", game))
+  }
+}
