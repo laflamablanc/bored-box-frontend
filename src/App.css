@@ -384,6 +384,7 @@ ul{
   font-family: "Futura"
 }
 
+
 .login-page-input {
   width: 50%;
 }
@@ -407,4 +408,9 @@ ul{
   transition: all 0.5s;
   cursor: pointer;
   margin: 8px;
+}
+
+.how-it-works {
+  display: flex;
+  justify-content: space-evenly;
 }

@@ -27,9 +27,9 @@ function HowItWorks() {
     }
 
   return(
-    <div className = "how-it-works">
+    <div className = "">
       <h2> How It Works </h2>
-      <div className="steps-container">
+      <div className="how-it-works">
         {cardContent.map(card => <WorksCard card={card}/>)}
       </div>
     </div>
