@@ -17,7 +17,6 @@ function Home() {
     <React.Fragment>
       <HeroImage/>
       <HowItWorks/>
-      <Graph/>
     </React.Fragment>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {createBox} from '../../redux/actions.js'
+import {createBox, returnGame} from '../../redux/actions.js'
 import {fetchBoxes} from '../../redux/actions.js'
 import NextBoxGameCard from '../../components/NextBoxGameCard'
 import LastBoxGameCard from '../../components/LastBoxGameCard'
@@ -8,7 +8,12 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 
 
+
 class BoxesContainer extends React.Component {
+
+  state = {
+    lastArray: []
+  }
 
   localClickHandler = () => {
     this.props.createBox(this.props.user)
@@ -20,10 +25,23 @@ class BoxesContainer extends React.Component {
     return total.toFixed(2)
   }
 
+  lastBoxReturnHandler = (game) => {
+    this.props.returnGame(game.id)
+  }
+
+  lastBoxKeepHandler = (game) => {
+    this.setState({
+      lastArray: [...this.state.lastArray, game]
+    })
+  }
+
   render(){
     let gamesArray = this.props.currentBox.games
     let lastBox = this.props.lastBox
-    console.log("GAMES ARRAY", gamesArray)
+    let currentTotal = this.totalCost(gamesArray)
+    let lastTotal = this.totalCost(this.state.lastArray) - this.state.lastArray.length*20
+    let grandTotal = lastTotal + gamesArray.length * 9.99
+    console.log("MY STATE", this.state.lastArray)
     if (gamesArray) {
       return(
         <div className = "boxes-container">
@@ -41,8 +59,7 @@ class BoxesContainer extends React.Component {
               }
           </ul>
           <div className="checkout-container">
-            <h2> Total: <s className="strike">${this.totalCost(gamesArray)}</s>  ${gamesArray.length * 9.99} </h2>
-            <button> Checkout </button>
+            <h2> Amount Due: <s className="strike">${currentTotal}</s>  ${gamesArray.length * 9.99} </h2>
           </div>
           <h2>Last Box:</h2>
             <h3> {this.props.currentBox.length === 0 ? "No Boxes Found" : "" } </h3>
@@ -50,7 +67,7 @@ class BoxesContainer extends React.Component {
                 {lastBox.games.map(game=> {
                     return (
                     <div>
-                      <LastBoxGameCard key = {game.id} game={game}/>
+                      <LastBoxGameCard key = {game.id} game={game} lastBoxKeepHandler = {this.lastBoxKeepHandler} lastBoxReturnHandler= {this.lastBoxReturnHandler}/>
                       <Divider/>
                     </div>
                   )
@@ -58,7 +75,10 @@ class BoxesContainer extends React.Component {
                 }
             </ul>
             <div className="checkout-container">
-              <h2> Total: ${this.totalCost(lastBox.games)- lastBox.games.length*20} </h2>
+              <h2> Amount Due: ${(lastTotal).toFixed(2)} </h2>
+            </div>
+            <div className="checkout-container">
+              <h1> Total Due: ${grandTotal} </h1>
               <button> Checkout </button>
             </div>
         </div>)
@@ -91,7 +111,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createBox: (user) => dispatch(createBox(user)),
-    fetchBoxes: (user) => dispatch(fetchBoxes(user))
+    fetchBoxes: (user) => dispatch(fetchBoxes(user)),
+    returnGame: (gameId) => dispatch(returnGame(gameId))
   }
 }
 

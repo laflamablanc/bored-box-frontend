@@ -6,14 +6,24 @@ import Grid from '@material-ui/core/Grid';
 
 class LastBoxGameCard extends React.Component {
 
+  // localClickHandler = (e) => {
+  //   const gameId = this.props.game.id
+  //   // console.log("Game Id", gameId)
+  //   const boxGameId = this.props.currentBox.box_games.find(element => element.game_id === gameId)
+  //   console.log()
+  //   // const boxId = this.props.currentBox[0].id
+  //   this.props.removeGameFromBox(boxGameId.id, gameId)
+  //   // console.log("Remove", this.props)
+  // }
+
   localClickHandler = (e) => {
-    const gameId = this.props.game.id
-    // console.log("Game Id", gameId)
-    const boxGameId = this.props.currentBox.box_games.find(element => element.game_id === gameId)
-    console.log("BOXGAMEID", boxGameId.id)
-    // const boxId = this.props.currentBox[0].id
-    this.props.removeGameFromBox(boxGameId.id, gameId)
-    // console.log("Remove", this.props)
+    if (e.target.name === "keep") {
+      console.log("keepepepe")
+      this.props.lastBoxKeepHandler(this.props.game)
+    } else {
+      console.log("return me")
+      this.props.lastBoxReturnHandler(this.props.game)
+    }
   }
 
   render(){
@@ -31,8 +41,8 @@ class LastBoxGameCard extends React.Component {
           </Grid>
           <Grid xs ={3}>
             <h3>Price: ${(this.props.game.price - 20.00).toFixed(2)}</h3>
-            <button name="remove" onClick = {this.localClickHandler}> Keep Game</button>
-            <button name="remove" onClick = {this.localClickHandler}> Return Game</button>
+            <button name="keep" onClick = {this.localClickHandler}> Keep Game</button>
+            <button name="return" onClick = {this.localClickHandler}> Return Game</button>
           </Grid>
         </React.Fragment>
       </div>

@@ -108,13 +108,18 @@ function boxesReducer(state = defaultState.boxes, action){
           games: [...state.games, action.payload],
           box_games: [...state.box_games, action.boxgame]
         }
-        case "REMOVE_GAME_FROM_BOX":
-          return {
-            ...state,
-            games: state.games.filter(game => game.id !== action.payload)
-          }
+        // case "REMOVE_GAME_FROM_BOX":
+        //   return {
+        //     ...state,
+        //     games: state.games.filter(game => game.id !== action.payload)
+        //   }
       case "GET_USER":
         return action.payload.boxes.slice(-2)[0]
+      case "RETURN_GAME":
+        return {
+          ...state,
+          games: state.games.filter(game => game.id !== action.gameId)
+        }
       default:
         return state
     }

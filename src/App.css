@@ -111,6 +111,18 @@
   text-shadow:0px 1px 0px #854629;
 }
 
+.box-game-card button:active {
+	position:relative;
+	top:1px;
+}
+
+.box-game-card button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
 .box-game-item {
   display: flex;
   flex-direction: row;
@@ -222,4 +234,19 @@ input.checked[type="radio"]{
 
 .strike {
   color: red
+}
+
+.games-section {
+  display: flex;
+  width: 25%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px;
+  font-family: "Futura"
+}
+
+.games-section img {
+  width: 100px;
+  max-height: 300px;
 }

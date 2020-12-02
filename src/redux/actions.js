@@ -189,3 +189,10 @@ export function rateGame(rating, userGameId){
     .then(game => console.log("rate game", game))
   }
 }
+
+export function returnGame(gameId){
+  return {
+    type: "RETURN_GAME",
+    gameId: gameId
+  }
+}
