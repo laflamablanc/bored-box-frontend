@@ -4,6 +4,7 @@ import {createBox, returnGame} from '../../redux/actions.js'
 import {fetchBoxes} from '../../redux/actions.js'
 import NextBoxGameCard from '../../components/NextBoxGameCard'
 import LastBoxGameCard from '../../components/LastBoxGameCard'
+import CheckoutButton from '../../components/CheckoutButton'
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 
@@ -77,10 +78,7 @@ class BoxesContainer extends React.Component {
             <div className="checkout-container">
               <h2> Amount Due: ${(lastTotal).toFixed(2)} </h2>
             </div>
-            <div className="checkout-container">
-              <h1> Total Due: ${grandTotal} </h1>
-              <button> Checkout </button>
-            </div>
+            <CheckoutButton grandTotal={grandTotal}/>
         </div>)
     } else {
       return (

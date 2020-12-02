@@ -72,6 +72,10 @@
   width: 100px;
 }
 
+.box-game-card img:hover {
+  opacity: .5;
+}
+
 .checkout-container {
   display: flex;
   justify-content: flex-end;

@@ -13,6 +13,9 @@ import GamesCollection from './containers/MyCollection/GamesCollection'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import ThankYou from './components/ThankYou'
+import Checkout from './components/Checkout'
+
 
 class App extends React.Component {
 
@@ -32,6 +35,8 @@ class App extends React.Component {
           <Route exact path= "/collection" render ={() => { return loggedIn? <GamesCollection/> : <Login/>}}/>
           <Route path= "/games" render ={(routerProps) => { return loggedIn? <GamesContainer {...routerProps}/> : <Login/>}}/>
           <Route exact path= "/recommendations" render ={() => { return loggedIn? <RecommendationsContainer/> : <Login/>}}/>
+          <Route exact path= "/checkout" render ={() => { return loggedIn? <Checkout/> : <Login/>}}/>
+          <Route exact path = "/thankyou" component = {ThankYou}/>
         </div>
       </Router>
 
