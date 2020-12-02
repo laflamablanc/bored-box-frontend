@@ -6,18 +6,20 @@ import {useHistory} from 'react-router-dom'
 const Checkout = () => {
   const history = useHistory()
     return (
-      <div>
+      <div className="checkout">
       <form onSubmit = {()=>history.push("/thankyou/")}>
         <div>
           <h2> Shipping Adddress </h2>
-          <label>
-          First Name:
-          <input type="text" name="name" />
-          </label>
-          <label>
-          Last Name:
-          <input type="text" name="name" />
-          </label>
+          <div className = "checkout-section">
+            <label>
+              First Name:
+              <input type="text" name="name" />
+            </label>
+            <label>
+              Last Name:
+              <input type="text" name="name" />
+            </label>
+          </div>
           <label>
           Street Address:
           <input type="text" name="name" />
@@ -43,24 +45,26 @@ const Checkout = () => {
           </select>
           </label>
         </div>
-        <div>
+        <div className= "checkout">
           <h2> Payment Info </h2>
-          <label>
-            Card Number:
-            <input type="text" name="name" />
-          </label>
-          <label>
-            Name on card:
-            <input type="text" name="name" />
-          </label>
-          <label>
-            Expiration:
-            <input type="text" name="name" />
-          </label>
-          <label>
-            Security Code:
-            <input type="text" name="name" />
-          </label>
+          <div>
+            <label>
+              Card Number:
+              <input type="text" name="name" />
+            </label>
+            <label>
+              Name on card:
+              <input type="text" name="name" />
+            </label>
+            <label>
+              Expiration:
+              <input type="text" name="name" />
+            </label>
+            <label>
+              Security Code:
+              <input type="text" name="name" />
+            </label>
+          </div>
         </div>
         <input type="submit" value="Pay Now" />
       </form>

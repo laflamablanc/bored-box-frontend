@@ -25,17 +25,19 @@ class Login extends React.Component {
   render(){
     return(
       <div className="login-page">
-        <h2 className="login-page-header-text login-page-header-text-lg"> Welcome to BoredBox! </h2>
-        <h5 className="login-page-header-text login-page-header-text-sm"> Please Login to Continue </h5>
-        <form className="login-page-form" onSubmit = {this.localSubmitHandler}>
-            <label className="login-page-header-text" for="username">Username:</label><br/>
-            <input type="text" id="username" name="username" onChange = {this.handleChange} value={this.state.username}/><br/>
-            <label className="login-page-header-text" for="password">Password:</label><br/>
-            <input type="password" id="password" name="password" onChange = {this.handleChange} value = {this.state.password}/><br/>
+        <div className="login-page-card">
+          <img src="/LoginLogoClear.png" alt=""/>
+          <h5 className="login-page-header-text login-page-header-text-sm"> Please Login to Continue </h5>
+          <form className="login-page-form" onSubmit = {this.localSubmitHandler}>
+            <label className="login-page-input-text" for="username">Username:</label><br/>
+            <input className="login-page-input" placeholder="username" type="text" id="username" name="username" onChange = {this.handleChange} value={this.state.username}/><br/>
+            <label className="login-page-input-text" for="password">Password:</label><br/>
+            <input className="login-page-input" placeholder="password" type="password" id="password" name="password" onChange = {this.handleChange} value = {this.state.password}/><br/>
             <input className="login-page-submit" type="submit" id="submit" name="submit"/>
-        </form>
-        <br/>
-          <Link to="/signup"> Create Account Here </Link>
+            <br/>
+            <Link to="/signup"> Create Account Here </Link>
+          </form>
+        </div>
       </div>
     )
   }

@@ -98,6 +98,10 @@
   text-shadow:0px 1px 0px #854629;
   margin-left: 25px;
 }
+.checkout-container button:hover{
+  background:linear-gradient(to bottom, #ce0100 5%, #ff6a00 100%);
+  background-color:#ce0100;
+}
 
 .box-game-card button {
   box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -118,6 +122,11 @@
 .box-game-card button:active {
 	position:relative;
 	top:1px;
+}
+
+.box-game-card button:hover{
+  background:linear-gradient(to bottom, #ce0100 5%, #ff6a00 100%);
+  background-color:#ce0100;
 }
 
 .box-game-card button:active:after {
@@ -241,7 +250,6 @@ input.checked[type="radio"]{
 }
 
 .games-section {
-  display: flex;
   width: 25%;
   flex-direction: row;
   justify-content: space-evenly;
@@ -250,7 +258,153 @@ input.checked[type="radio"]{
   font-family: "Futura"
 }
 
+.games-section-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px;
+  font-family: "Futura"
+}
+
 .games-section img {
-  width: 100px;
+  width: 120px;
   max-height: 300px;
+}
+
+.question {
+  font-size: 20px;
+  flex-wrap: none;
+}
+
+ul{
+  list-style-type: none;
+}
+
+
+#submit {
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:linear-gradient(to bottom, #ff6a00 5%, #ce0100 100%);
+	background-color:#ff6a00;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+  margin-left: 50px;
+}
+#submit:hover {
+	background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+	background-color:#ce0100;
+}
+#submit:active {
+	position:relative;
+	top:1px;
+}
+
+.quiz-container {
+  margin-left: 20px;
+}
+
+.checkout {
+  display: flex;
+  flex-wrap: wrap;
+  width: 55%;
+  flex-direction: row;
+  align-items: left;
+  margin: 10px;
+  font-family: "Futura"
+}
+
+.checkout-section {
+  width: 50%;
+}
+
+.login-page {
+  background-image: url("./images/LoginImage.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 130%;
+  height: 1310px;
+  position: relative;
+}
+
+.login-page img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:200px;
+  justify-content: center;
+}
+
+.login-page-header-text {
+  color: black;
+  text-align: center;
+  font-family: 'founders-heading', sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.20), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.10), 0 16px 16px rgba(0, 0, 0, 0.05);
+}
+
+.login-page-input-text {
+  color: black;
+  justify-content: left;
+  font-family: 'founders-heading', sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.20), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.10), 0 16px 16px rgba(0, 0, 0, 0.05);
+}
+
+.login-page-form {
+  align-content: center;
+  display: block;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.login-page-card {
+  width: 50%;
+  height: 40%;
+  padding: 20px;
+  border: 3px solid black;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  background-color: rgba(168,168,168, .75);
+
+}
+
+.login-page-header-text-sm{
+  font-size: 130%;
+  font-family: "Futura"
+}
+
+.login-page-input {
+  width: 50%;
+}
+
+.login-page-header-text-lg{
+  font-size: 500%;
+  padding-top: 10px;
+}
+
+
+.login-page-submit {
+  display: block;
+  border-radius: 4px;
+  background-color: #0b710b;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  justify-content: center;
+  font-size: 28px;
+  width: 125px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 8px;
 }
