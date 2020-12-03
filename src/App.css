@@ -336,30 +336,14 @@ ul{
   margin-left: 20px;
 }
 
-.checkout {
-  display: flex;
-  flex-wrap: wrap;
-  width: 4%0;
-  flex-direction: row;
-  align-items: left;
-  margin: 10px;
-  font-family: "Futura";
-  font-size: 25px;
-  border: 5px solid orange;
-  margin-left: 5%;
-  padding: 50px;
-}
+
 .checkout-container {
   display: flex;
   justify-content: flex-end;
   margin-right: 18%;
 }
 
-.checkout-section {
-  width: 50%;
-  top: 50%;
-  left: 25%;
-}
+
 
 .login-page {
   background-image: url("./images/LoginImage.png");
@@ -450,7 +434,7 @@ ul{
 
 .billing-button {
 	box-shadow:inset 0px 1px 0px 0px #fce2c1;
-	background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
+	background:linear-gradient(to bottom, #ff6a00 5%, #fb9e25 100%);
 	background-color:#ff6a00;
 	border-radius:12px;
 	border:1px solid #eeb44f;
@@ -467,6 +451,46 @@ ul{
   margin-top: 100px;
 }
 .billing-button:hover {
-	background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-	background-color:#fb9e25;
+	background:linear-gradient(to bottom, #fb9e25 5%, #ff6a00 100%);
+	background-color:#ff6a00;
+}
+
+.billing-button:active {
+  position:relative;
+  top:1px;
+}
+
+
+
+.billing {
+  display: flex;
+  flex-wrap: wrap;
+  width: 4%0;
+  flex-direction: row;
+  align-items: left;
+  margin: 10px;
+  font-family: "Futura";
+  font-size: 25px;
+  margin-left: 5%;
+  padding: 50px;
+}
+
+.billing-section {
+  width: 75%;
+  top: 50%;
+  left: 25%;
+}
+
+.billing-section input {
+  height: 20px;
+  width: 180px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.billing-section select {
+  height: 30px;
+  width: 180px;
+  padding: 5px;
+  margin: 10px;
 }
