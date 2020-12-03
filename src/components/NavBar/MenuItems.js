@@ -9,14 +9,10 @@ export const MenuItems = [
     url: '/',
     cName: 'nav-links'
   },
-  {
-    title: 'Get Started',
-    url: '/signup',
-    cName: 'nav-links'
-  },
+
   {
     title: 'FAQ',
-    url: '/',
+    url: '/faq',
     cName: 'nav-links'
   },
   {
@@ -24,19 +20,9 @@ export const MenuItems = [
     url: '/games',
     cName: 'nav-links'
   },
-  // {
-  //   title: 'Log In',
-  //   url: '/login',
-  //   cName: 'nav-links'
-  // },
   {
     title: 'Quiz',
     url: '/quiz',
-    cName: 'nav-links'
-  },
-  {
-    title: 'My Boxes',
-    url: '/boxes',
     cName: 'nav-links'
   },
   {
@@ -47,6 +33,11 @@ export const MenuItems = [
   {
     title: 'My Recommendations',
     url: '/recommendations',
+    cName: 'nav-links'
+  },
+  {
+    title: 'My Boxes',
+    url: '/boxes',
     cName: 'nav-links'
   },
   {

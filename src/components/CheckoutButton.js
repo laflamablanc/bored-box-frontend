@@ -6,7 +6,7 @@ const CheckoutButton = (props) => {
 
   return(
     <div className="checkout-container">
-      <h1> Total Due: ${props.grandTotal} </h1>
+      <h1> Total Due: ${props.grandTotal.toFixed(2)} </h1>
       <button onClick = {()=>history.push("/checkout")}> Checkout </button>
     </div>
   )
