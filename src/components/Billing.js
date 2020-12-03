@@ -43,7 +43,7 @@ const Billing = () => {
           </select>
           </label>
         </div>
-        <div className= "checkout">
+        <div >
           <h2> Payment Info </h2>
           <div>
             <label>
@@ -64,12 +64,11 @@ const Billing = () => {
             </label>
           </div>
         </div>
-        <input type="submit" value="Pay Now" />
+        <input className="billing-button" type="submit" value="Pay Now" />
       </form>
       </div>
     )
 }
-
 
 export default Billing
 
