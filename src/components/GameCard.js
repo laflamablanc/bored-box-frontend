@@ -19,8 +19,8 @@ const GameCard = (props) => {
         <img src={game.image} alt={game.name} onClick = {()=>history.push("/games/" + game.id)}/>
         <div>Price: ${game.price}</div>
         <div>Number of Players: {game.min_players} - {game.max_players}</div>
-        <button name="add-collection" onClick = {localClickHandler}> Add to Collection </button>
-        <button name="add-box" onClick = {localClickHandler}> Add to Box </button>
+        <button className = "box-game-card" name="add-collection" onClick = {localClickHandler}> Add to Collection </button>
+        <button className = "box-game-card" name="add-box" onClick = {localClickHandler}> Add to Box </button>
       </div>
     )
 
