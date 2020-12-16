@@ -42,8 +42,9 @@
 .GameCard {
   border: 2px solid black;
   margin: 20px;
-  width: 280px;
-  font-family: "Futura"
+  width: 350px;
+  font-family: "Futura";
+  padding: 25px;
 }
 
 .GameCard img {
@@ -431,6 +432,7 @@ ul{
 .how-it-works {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 50px;
 }
 
 .billing-button {
@@ -517,4 +519,8 @@ ul{
   width: 50%;
   height: 50%;
   padding: 20px;
+}
+
+.sort-container {
+  margin-left: 150px;
 }

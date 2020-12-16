@@ -104,7 +104,7 @@ class GamesContainer extends React.Component {
           <Route path='/games' render={()=>{
               return(
                 <div>
-                  <div>
+                  <div className = "sort-container">
                     <Sort sortGames = {this.sortGames}/>
                     <Search searchValue = {this.state.searchValue} searchGames = {this.searchGames}/>
                   </div>
