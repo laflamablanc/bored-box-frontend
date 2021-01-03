@@ -320,7 +320,7 @@ ul{
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:10px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #b23e35;
   margin-left: 50px;
@@ -388,7 +388,7 @@ ul{
 
 .login-page-card {
   width: 50%;
-  height: 40%;
+  height: 44%;
   padding: 20px;
   border: 3px solid black;
   position: absolute;
@@ -406,6 +406,10 @@ ul{
 
 .login-page-input {
   width: 50%;
+  height: 20px;
+  padding: 1px;
+  margin: 10px;
+  font-size: 20px;
 }
 
 .login-page-header-text-lg{

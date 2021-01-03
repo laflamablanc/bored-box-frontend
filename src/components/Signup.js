@@ -1,19 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {createUser, createBox} from '../redux/actions'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
 class Signup extends React.Component {
 
   state = {
     username: "",
-    password: ""
+    password: "",
+    name: "",
+    zip: "",
+    subscribed: false,
+    board_score: 0,
+    card_score: 0,
+    party_score: 0,
+    fantasy_score: 0,
+    economic_score: 0,
+    territory_score: 0,
+    players_score: 0
   }
 
   localSubmitHandler = (e) => {
     e.preventDefault()
     this.props.createUser(this.state)
-    this.setState({username: "", password: ""})
+    this.setState({username: "", password: "", name: "", zip: ""})
   }
 
   handleChange = (e) => {
@@ -23,23 +33,33 @@ class Signup extends React.Component {
   }
 
   render(){
+    console.log("Logged In:", this.props.loggedin)
     return(
-      <div className="login-page">
-        <h2 className="login-page-header-text login-page-header-text-lg"> Welcome to BoredBox! </h2>
-        <h5 className="login-page-header-text login-page-header-text-sm"> Please Signup to Continue </h5>
-        <form className="login-page-form" onSubmit = {this.localSubmitHandler}>
-          <label className="login-page-header-text" for="name">Full Name:</label><br/>
-          <input type="text" id="name" name="name" onChange = {this.handleChange} value={this.state.username}/><br/>
-            <label className="login-page-header-text" for="username">Username:</label><br/>
-            <input type="text" id="username" name="username" onChange = {this.handleChange} value={this.state.username}/><br/>
-            <label className="login-page-header-text" for="password">Password:</label><br/>
-            <input type="password" id="password" name="password" onChange = {this.handleChange} value = {this.state.password}/><br/>
-            <input className="login-page-submit" type="submit" id="submit" name="submit"/>
-        </form>
-      <br/>
-        <Link to="/login"> Already have an account? </Link>
+      <React.Fragment>
+        {this.props.loggedin ?
+          <Redirect to="/"/>
+            :
+            <div className="login-page">
+              <div className="login-page-card">
+                <img src="/LoginLogoClear.png" alt=""/>
+                <h5 className="login-page-header-text login-page-header-text-sm"> Please Register Below: </h5>
+                <form className="login-page-form" onSubmit = {this.localSubmitHandler}>
+                  <input className="login-page-input" placeholder="Email Address (Will become your username)" type="text" id="username" name="username" onChange = {this.handleChange} value={this.state.username}/><br/>
 
-      </div>
+                  <input className="login-page-input" placeholder="Password" type="password" id="password" name="password" onChange = {this.handleChange} value = {this.state.password}/><br/>
+
+                  <input className="login-page-input" placeholder="Full Name" type="name" id="name" name="name" onChange = {this.handleChange} value = {this.state.name}/><br/>
+
+                  <input className="login-page-input" placeholder="Zip Code (US Only) *Verify we can ship to you*" type="zip" id="zip" name="zip" onChange = {this.handleChange} value = {this.state.zip}/><br/>
+
+                  <input className="login-page-submit" type="submit" id="submit" name="submit"/>
+                  <br/>
+                  <Link to="/login"> Already have an account? </Link>
+                </form>
+              </div>
+            </div>
+        }
+      </React.Fragment>
     )
   }
 }
@@ -51,5 +71,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {loggedin: state.loggedin}
+}
 
-export default connect(null, mapDispatchToProps)(Signup)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)

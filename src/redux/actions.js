@@ -28,17 +28,17 @@ export function fetchBoxes(user){
   return function(dispatch){
     fetch("http://localhost:4000/users/" + user.id)
     .then(r=>r.json())
-    .then(console.log)
-    // .then(user => {
-    //   dispatch({
-    //     type: "FETCH_BOXES",
-    //     payload: user.boxes
-    //   })
-    // })
+    .then(user => {
+      dispatch({
+        type: "FETCH_BOXES",
+        payload: user.boxes
+      })
+    })
   }
 }
 
 export function createUser(newUser){
+  console.log("MY NEW USER", newUser)
   return function(dispatch){
     fetch("http://localhost:4000/users", {
       method: "POST",
