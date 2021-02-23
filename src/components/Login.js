@@ -12,7 +12,7 @@ class Login extends React.Component {
 
   localSubmitHandler = (e) => {
     e.preventDefault()
-    this.props.getUser()
+    this.props.getUser(this.state)
     this.setState({username: "", password: ""})
   }
 
@@ -20,6 +20,7 @@ class Login extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+    console.log(this.state)
   }
 
   render(){

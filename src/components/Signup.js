@@ -6,6 +6,7 @@ import {Link, Redirect} from 'react-router-dom'
 class Signup extends React.Component {
 
   state = {
+    email: "",
     username: "",
     password: "",
     name: "",

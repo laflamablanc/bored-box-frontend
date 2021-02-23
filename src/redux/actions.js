@@ -13,7 +13,7 @@ export function fetchApi(){
 
 export function fetchUsers(){
   return function(dispatch){
-    fetch("http://localhost:4000/users")
+    fetch("http://localhost:4000/api/v1/users")
     .then(r=>r.json())
     .then(users => {
       dispatch({
@@ -40,36 +40,56 @@ export function fetchBoxes(user){
 export function createUser(newUser){
   console.log("MY NEW USER", newUser)
   return function(dispatch){
-    fetch("http://localhost:4000/users", {
+    fetch("http://localhost:4000/api/v1/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
         "accepts": "application/json"
       },
-      body: JSON.stringify(newUser)
+      // body: JSON.stringify({user: {
+      //   username: newUser.username,
+      //   email: newUser.email,
+      //   password: newUser.password
+      // }})
+      body: JSON.stringify({user: {newUser}})
     })
     .then(r=>r.json())
-    .then(user => {
-      dispatch({
-        type: "ADD_USER",
-        payload: user
-      })
-    })
-    .catch(console.log)
+    .then(user => console.log("User from db", user))
+    // .then(user => {
+    //   dispatch({
+    //     type: "ADD_USER",
+    //     payload: user
+    //   })
+    // })
+    // .catch(console.log)
   }
 }
 
-export function getUser(){
+export function getUser(user){
   return function(dispatch){
-    fetch("http://localhost:4000/login")
-    .then(r=>r.json())
-    .then(user => {
-      dispatch({
-        type: "GET_USER",
-        payload: user
+    fetch("http://localhost:4000/api/v1/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+
+      },
+      body: JSON.stringify({
+        user: {
+          username: user.username.toLowerCase(),
+          password: user.password  
+        }
       })
     })
-    .catch(console.log)
+    .then(r=>r.json())
+    .then(console.log)
+    // .then(user => {
+      
+    //   dispatch({
+    //     type: "GET_USER",
+    //     payload: user
+    //   })
+    // })
+    // .catch(console.log)
   }
 }
 
