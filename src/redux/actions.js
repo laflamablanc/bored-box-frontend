@@ -46,11 +46,6 @@ export function createUser(newUser){
         "content-type": "application/json",
         "accepts": "application/json"
       },
-      // body: JSON.stringify({user: {
-      //   username: newUser.username,
-      //   email: newUser.email,
-      //   password: newUser.password
-      // }})
       body: JSON.stringify({user: {newUser}})
     })
     .then(r=>r.json())
