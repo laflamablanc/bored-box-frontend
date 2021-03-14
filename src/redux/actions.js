@@ -1,6 +1,6 @@
 export function fetchApi(){
   return function(dispatch){
-    fetch("http://localhost:4000/games")
+    fetch("http://localhost:4000/api/v1/games")
     .then(r=>r.json())
     .then(games => {
       dispatch({
@@ -26,7 +26,7 @@ export function fetchUsers(){
 
 export function fetchBoxes(user){
   return function(dispatch){
-    fetch("http://localhost:4000/users/" + user.id)
+    fetch("http://localhost:4000/api/v1/users/" + user.id)
     .then(r=>r.json())
     .then(user => {
       dispatch({
@@ -89,7 +89,7 @@ export function getUser(user){
 
 export function createBox(user){
   return function(dispatch){
-    fetch("http://localhost:4000/boxes", {
+    fetch("http://localhost:4000/api/v1/boxes", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -112,7 +112,7 @@ export function createBox(user){
 export function addGameToBox(game, currentBox){
   return function(dispatch){
     console.log("Inside Fetch", "Game", game.id, "CurrentBox", currentBox)
-    fetch("http://localhost:4000/box_games",{
+    fetch("http://localhost:4000/api/v1/box_games",{
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -137,7 +137,7 @@ export function addGameToBox(game, currentBox){
 export function removeGameFromBox(boxGameId, gameId){
   console.log("Removing:", boxGameId)
   return function(dispatch){
-    fetch("http://localhost:4000/box_games/" + boxGameId, {method: "DELETE"})
+    fetch("http://localhost:4000/api/v1/box_games/" + boxGameId, {method: "DELETE"})
     .then(r=>r.json())
     .then(boxgame => {
       dispatch({
@@ -151,7 +151,7 @@ export function removeGameFromBox(boxGameId, gameId){
 export function addGameCollection(userId, game){
   console.log("ADDING GAME TO COLLECTION", userId, game.id)
   return function(dispatch){
-    fetch("http://localhost:4000/user_games", {
+    fetch("http://localhost:4000/api/v1/user_games", {
       method: "POST",
       headers: {
         "accepts": "application/json",
@@ -176,7 +176,7 @@ export function addGameCollection(userId, game){
 export function removeGameFromCollection(userGameId, gameId){
   console.log("Removing:", userGameId)
   return function(dispatch){
-    fetch("http://localhost:4000/user_games/" + userGameId, {method: "DELETE"})
+    fetch("http://localhost:4000/api/v1/user_games/" + userGameId, {method: "DELETE"})
     .then(r=>r.json())
     .then(usergame => {
       dispatch({
@@ -191,7 +191,7 @@ export function removeGameFromCollection(userGameId, gameId){
 export function rateGame(rating, userGameId){
   console.log("RATING INSIDE FETCH", rating)
   return function(dispatch){
-    fetch("http://localhost:4000/user_games/" + userGameId,{
+    fetch("http://localhost:4000/api/v1/user_games/" + userGameId,{
       method: "PATCH",
       headers: {
         "accept": "application/json",
