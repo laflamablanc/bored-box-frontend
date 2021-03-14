@@ -76,15 +76,14 @@ export function getUser(user){
       })
     })
     .then(r=>r.json())
-    .then(console.log)
-    // .then(user => {
-      
-    //   dispatch({
-    //     type: "GET_USER",
-    //     payload: user
-    //   })
-    // })
-    // .catch(console.log)
+    .then(userData => {
+      console.log("UD:", userData.user.boxes)
+      dispatch({
+        type: "GET_USER",
+        payload: userData.user
+      })
+    })
+    .catch(console.log)
   }
 }
 

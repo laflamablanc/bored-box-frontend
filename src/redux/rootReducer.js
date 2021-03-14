@@ -47,7 +47,7 @@ function boxesReducer(state = defaultState.boxes, action){
       case "GET_USER":
         return {
           games: action.payload.collection,
-          user_games: action.payload.user_games
+          user_games: action.payload_games
         }
       default:
         return state
@@ -70,7 +70,7 @@ function boxesReducer(state = defaultState.boxes, action){
       case "ADD_USER":
         return true
       case 'GET_USER':
-        return true
+        return !!action.payload
       default:
         return state
     }
@@ -92,7 +92,7 @@ function boxesReducer(state = defaultState.boxes, action){
             games: state.games.filter(game => game.id !== action.payload)
           }
       case "GET_USER":
-        return action.payload.boxes.slice(-1)[0]
+        return action.payload.boxes.slice(-1)[0] ? action.payload.boxes.slice(-1)[0] : []
       default:
         return state
     }
@@ -108,7 +108,7 @@ function boxesReducer(state = defaultState.boxes, action){
         //     games: state.games.filter(game => game.id !== action.payload)
         //   }
       case "GET_USER":
-        return action.payload.boxes.slice(-2)[0]
+        return action.payload.boxes.slice(-2)[0] ? action.payload.boxes.slice(-2)[0] : []
       case "RETURN_GAME":
         return {
           ...state,
