@@ -64,7 +64,6 @@ class GamesContainer extends React.Component {
     }
   }
 
-
   render(){
     console.log("array", this.state)
     let gamesArray = this.returnArray()
@@ -95,7 +94,6 @@ class GamesContainer extends React.Component {
               )
             }}/>
         </Switch>
-
       </div>
     )
   }
