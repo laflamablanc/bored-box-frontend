@@ -64,26 +64,6 @@ class GamesContainer extends React.Component {
     }
   }
 
-  //
-  // <Route path={`/${root}/:id`} render={(routerProps) => {
-  //      let id = parseInt(routerProps.match.params.id)
-  //      let post;
-  //      if(category.posts) {
-  //          post = category.posts.find(post => post.id === id)
-  //      }
-  //      return (
-  //          <>
-  //          {
-  //              category.posts
-  //              ?
-  //              <Post key={post.id} post={post} root={`${root}`}/>
-  //              :
-  //              <h2>Loading...</h2>
-  //          }
-  //          </>
-  //      )
-  //  }}/>
-
 
   render(){
     console.log("array", this.state)
