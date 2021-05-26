@@ -83,8 +83,8 @@ function boxesReducer(state = defaultState.boxes, action){
       case "ADD_GAME_TO_BOX":
         return {
           ...state,
-          games: [...state.games, action.payload],
-          box_games: [...state.box_games, action.boxgame]
+          games: [...state.games, action.payload.game],
+          box_games: [...state.box_games, action.payload.boxgame]
         }
         case "REMOVE_GAME_FROM_BOX":
           return {
