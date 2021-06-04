@@ -49,14 +49,13 @@ export function createUser(newUser){
       body: JSON.stringify({user: {newUser}})
     })
     .then(r=>r.json())
-    .then(user => console.log("User from db", user))
-    // .then(user => {
-    //   dispatch({
-    //     type: "ADD_USER",
-    //     payload: user
-    //   })
-    // })
-    // .catch(console.log)
+    .then(user => {
+      dispatch({
+        type: "ADD_USER",
+        payload: user
+      })
+    })
+    .catch(console.log)
   }
 }
 
