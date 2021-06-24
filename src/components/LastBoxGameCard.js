@@ -6,22 +6,11 @@ import Grid from '@material-ui/core/Grid';
 
 class LastBoxGameCard extends React.Component {
 
-  // localClickHandler = (e) => {
-  //   const gameId = this.props.game.id
-  //   // console.log("Game Id", gameId)
-  //   const boxGameId = this.props.currentBox.box_games.find(element => element.game_id === gameId)
-  //   console.log()
-  //   // const boxId = this.props.currentBox[0].id
-  //   this.props.removeGameFromBox(boxGameId.id, gameId)
-  //   // console.log("Remove", this.props)
-  // }
 
   localClickHandler = (e) => {
     if (e.target.name === "keep") {
-      console.log("keepepepe")
       this.props.lastBoxKeepHandler(this.props.game)
     } else {
-      console.log("return me")
       this.props.lastBoxReturnHandler(this.props.game)
     }
   }

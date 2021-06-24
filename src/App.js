@@ -20,7 +20,6 @@ import Billing from './components/Billing'
 class App extends React.Component {
 
   render(){
-    console.log("State after login", this.props.state)
     let loggedIn = this.props.state.loggedin
     return (
       <Router>
@@ -45,8 +44,6 @@ class App extends React.Component {
 
   componentDidMount(){
     this.props.fetchApi()
-    // this.props.fetchUsers()
-    console.log("App State", this.state)
   }
 }
 
