@@ -37,7 +37,6 @@ class RecommendationsContainer extends React.Component {
 
   render(){
     let recsArray = this.props.gameRecs
-    console.log("RECS ARRAY", recsArray)
     if (recsArray) {
       return(
         <div className = "boxes-container">

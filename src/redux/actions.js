@@ -38,7 +38,6 @@ export function fetchBoxes(user){
 }
 
 export function createUser(newUser){
-  console.log("MY NEW USER", newUser)
   return function(dispatch){
     fetch("http://localhost:4000/api/v1/users", {
       method: "POST",
@@ -76,7 +75,6 @@ export function getUser(user){
     })
     .then(r=>r.json())
     .then(userData => {
-      console.log("UD:", userData.user.boxes)
       dispatch({
         type: "GET_USER",
         payload: userData.user
@@ -110,7 +108,6 @@ export function createBox(user){
 
 export function addGameToBox(game, currentBox){
   return function(dispatch){
-    console.log("Inside Fetch", "Game", game.id, "CurrentBox", currentBox)
     fetch("http://localhost:4000/api/v1/box_games",{
       method: "POST",
       headers: {
@@ -136,7 +133,6 @@ export function addGameToBox(game, currentBox){
 }
 
 export function removeGameFromBox(boxGameId, gameId){
-  console.log("Removing:", boxGameId)
   return function(dispatch){
     fetch("http://localhost:4000/api/v1/box_games/" + boxGameId, {method: "DELETE"})
     .then(r=>r.json())
@@ -150,7 +146,6 @@ export function removeGameFromBox(boxGameId, gameId){
 }
 
 export function addGameCollection(userId, game){
-  console.log("ADDING GAME TO COLLECTION", userId, game.id)
   return function(dispatch){
     fetch("http://localhost:4000/api/v1/user_games", {
       method: "POST",
@@ -190,7 +185,6 @@ export function removeGameFromCollection(userGameId, gameId){
 }
 
 export function rateGame(rating, userGameId){
-  console.log("RATING INSIDE FETCH", rating)
   return function(dispatch){
     fetch("http://localhost:4000/api/v1/user_games/" + userGameId,{
       method: "PATCH",

@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 
 class AccountInfo extends React.Component {
   render(){
-    console.log(this.props)
     let currentUser = this.props.user
     return(
       <div>

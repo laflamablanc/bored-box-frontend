@@ -9,7 +9,7 @@ import './GamesCollection.css';
 class GamesCollection extends React.Component {
 
   render(){
-    console.log("STATE", this.props.collection)
+    ("STATE", this.props.collection)
     let collectionArray = this.props.collection.games
     return(
       <div className="games-container">

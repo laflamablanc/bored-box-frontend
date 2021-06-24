@@ -12,20 +12,15 @@ class CollectionGameCard extends React.Component {
   }
 
   ratingHandler = (rating) => {
-    console.log("Rating", rating)
-    console.log("This.Props", this.props.game)
-    console.log("USER GAMES", this.props.collection.user_games)
     let gameId = this.props.game.id
     let user_games = this.props.collection.user_games
     let mygame = user_games.find(ug => ug.game_id === gameId)
-    console.log("mygame", mygame)
     this.props.rateGame(rating, mygame.id)
   }
 
   render(){
     let game = this.props.game
     let rating = this.props.collection.user_games.find(ug => ug.game_id === game.id).rating
-    console.log("rating", rating)
     return(
       <div className="GameCard">
         <h1>{game.name}</h1>
