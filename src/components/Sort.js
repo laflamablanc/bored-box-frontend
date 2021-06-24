@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class Sort extends Component {
 
   changeHandler = (e) => {
@@ -20,7 +19,6 @@ class Sort extends Component {
       </div>
     );
   }
-
 }
 
 export default Sort;
