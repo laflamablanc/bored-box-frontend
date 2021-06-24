@@ -64,7 +64,6 @@ export default class Example extends PureComponent {
 
 
   render() {
-    console.log("GRAPH PROPS",this.props)
     return (
       <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={data(this.props.game, this.props.userProfile)}>
         <PolarGrid />

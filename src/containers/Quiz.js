@@ -9,12 +9,10 @@ const Quiz = () => {
 
 
   const submitHandler = (e) => {
-    console.log(e.target)
     e.preventDefault()
     history.push("/recommendations")
   }
 
-    console.log(quizArray)
     return(
       <div className="quiz-container">
         <form onSubmit ={submitHandler}>

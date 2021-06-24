@@ -34,7 +34,6 @@ class Signup extends React.Component {
   }
 
   render(){
-    console.log("Logged In:", this.props.loggedin)
     return(
       <React.Fragment>
         {this.props.loggedin ?

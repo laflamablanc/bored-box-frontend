@@ -8,12 +8,8 @@ class NextBoxGameCard extends React.Component {
 
   localClickHandler = (e) => {
     const gameId = this.props.game.id
-    // console.log("Game Id", gameId)
     const boxGameId = this.props.currentBox.box_games.find(element => element.game_id === gameId)
-    console.log("BOXGAMEID", boxGameId.id)
-    // const boxId = this.props.currentBox[0].id
     this.props.removeGameFromBox(boxGameId.id, gameId)
-    // console.log("Remove", this.props)
   }
 
   render(){
