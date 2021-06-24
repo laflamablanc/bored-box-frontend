@@ -42,7 +42,6 @@ class BoxesContainer extends React.Component {
     let currentTotal = this.totalCost(gamesArray)
     let lastTotal = this.totalCost(this.state.lastArray) - this.state.lastArray.length*20
     let grandTotal = lastTotal + gamesArray.length * 9.99
-    console.log("MY STATE", this.state.lastArray)
     if (gamesArray) {
       return(
         <div className = "boxes-container">

@@ -28,7 +28,6 @@ class GamesContainer extends React.Component {
   }
 
   searchGames = (e) => {
-    console.log(e.target.value)
     let filteredArray = this.state.games.filter(game => game.name.toLowerCase().includes(e.target.value.toLowerCase()))
     this.setState({filtered: filteredArray})
   }
@@ -65,9 +64,7 @@ class GamesContainer extends React.Component {
   }
 
   render(){
-    console.log("array", this.state)
     let gamesArray = this.returnArray()
-    console.log("GAMES CONTAINER PROPS", this.props)
     return(
       <div>
         <Switch>

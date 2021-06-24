@@ -170,7 +170,6 @@ export function addGameCollection(userId, game){
 }
 
 export function removeGameFromCollection(userGameId, gameId){
-  console.log("Removing:", userGameId)
   return function(dispatch){
     fetch("http://localhost:4000/api/v1/user_games/" + userGameId, {method: "DELETE"})
     .then(r=>r.json())
